@@ -25,32 +25,27 @@
 
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 	<div class="text-center">
-	<h1>VALL-E</h1>
-        <h3>Neural Codec Language Models are Zero-Shot Text to Speech Synthesizers</h3>
-		[<a href="https://arxiv.org/abs/2301.02111">Paper</a>]
+	<h1>AUDIT:</h1>
+        <h3>Audio Editing by Following Instructions with Latent Diffusion Models</h3>
+		<!-- [<a href="https://arxiv.org/abs/2301.02111">Paper</a>] -->
 		
         
         <p class="fst-italic mb-0">
-          <br>
+          <!-- <br>
             Chengyi Wang*, &nbsp Sanyuan Chen*, &nbsp Yu Wu*, &nbsp Ziqiang Zhang, &nbsp Long Zhou, &nbsp Shujie Liu, &nbsp  <br>
 			Zhuo Chen, &nbsp Yanqing Liu, &nbsp Huaming Wang, &nbsp Jinyu Li, &nbsp Lei He, &nbsp Sheng Zhao, &nbsp Furu Wei 
-			<p></p>
+			<p></p> -->
         </p>
         <p><b>Microsoft</b></p>
 	</div>
 	<p>
         <b>Abstract.</b> 
-		We introduce a language modeling approach for text to speech synthesis (TTS). 
-		Specifically, we train a neural codec language model (called VALL-E) using discrete codes derived from an off-the-shelf neural audio codec model, 
-		and regard TTS as a conditional language modeling task rather than continuous signal regression as in previous work.
-		During the pre-training stage, we scale up the TTS training data to 60K hours of English speech which is hundreds of times larger than existing systems.
-		VALL-E emerges in-context learning capabilities and can be used to synthesize high-quality personalized speech with only a 3-second enrolled recording of an unseen speaker as an acoustic prompt. 
-		Experiment results show that VALL-E significantly outperforms the state-of-the-art zero-shot TTS system  in terms of speech naturalness and speaker similarity. 
-		In addition, we find VALL-E could preserve the speaker's emotion and acoustic environment of the acoustic prompt in synthesis.
+		Audio editing in line with human expectations is a crucial task in various fields. Although diffusion models have demonstrated significant potential in audio generation, limited research has focused on editing audio by human instructions. Current approaches typically rely on text-to-audio diffusion models to add noise to the original audio and generate target audio through denoising the noisy audio using the text caption of target audio as a condition. However, such methods require more design in the sampling process to achieve the editing goal and it is difficult to ensure that the parts that do not need to be edited are retained. And the users do not necessarily have a complete description of the target audio.
+		In this work, we propose <b>AUDIT</b>, a multi-task text-guided audio editing model based on latent diffusion models. Due to the lack of audio editing pairing data, we define several types of audio editing tasks and corresponding instruction templates, and generate corresponding training data according to the templates. The advantages are 1) Different from existing diffusion-based audio editing works, AUDIT achieves audio editing by text instructions without requiring a complete description of the target audio; 2) compared to existing methods, our approach maximally preserves the parts of the audio that do not require modification since our method needs to learn to keep the parts that do not need to be edited during training; 3) our model is capable of handling multiple distinct editing tasks based on different editing instructions. AUDIT achieves state-of-the-art text-guided audio editing results in both objective and subjective metrics (e.g., LSD, KL, FD).
 		<br><br>
 		This page is for <b>research demonstration purposes</b> only.
 		<br><br>
-		Cross-lingual version: <a href="https://vallex-demo.github.io/">VALL-E X</a>.
+		<!-- Cross-lingual version: <a href="https://vallex-demo.github.io/">VALL-E X</a>. -->
       </p>
 </div>
 		
