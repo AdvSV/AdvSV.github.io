@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="css/custom.css">
 	<link rel="stylesheet" href="css/normalize.css">
 
-	<title>VALL-E</title>
+	<title>AUDIT</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 
 </head>
@@ -53,16 +53,14 @@
 	<h2 id="model-overview" style="text-align: center;">Model Overview</h2>
 	<body>
 	<p style="text-align: center;">
-		<img src="pics/Overview.jpg" height="400" width="800">
+		<img src="pics/overview.jpg" height="400" width="800">
 	</p>
 	</body>
 		<p>
-		The overview of VALL-E.  
-		Unlike the previous pipeline (e.g., phoneme &rarr; mel-spectrogram &rarr; waveform), the pipeline of VALL-E is phoneme &rarr; discrete code &rarr; waveform.  
-		VALL-E generates the discrete audio codec codes based on phoneme and acoustic code prompts, corresponding to the target content  and the  speaker's voice. 
-		VALL-E directly enables various speech synthesis applications, such as zero-shot TTS, speech editing, and content creation combined with other generative AI models like GPT-3.
+		A high-level overview of our text-guided audio editing framework. The audio autoencoder (VAE), the T5 encoder and the vocoder are pretrained models and frozen in this framework.
 		</p>
 </div>
+
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 	<h2 id="librispeech-samples" style="text-align: center;">LibriSpeech Samples</h2>
 		<div class="table-responsive pt-3">
