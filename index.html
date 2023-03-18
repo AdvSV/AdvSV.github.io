@@ -418,6 +418,77 @@
 		</div>
 </div>
 
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+	<h2 id="sr-samples" style="text-align: center;">Text-to-Audio Generation</h2>
+	<p>Since we compare with generative model-based audio editing baseline methods, we also train a text-to-audio latent diffusion model. Our model achieves the best performance in three objective metrics, FD, KL, and IS, and only uses AC and a subset of AS96 as training data. Compared to the previously best-performing model (AudioLDM), our model reduces FD by 3.12 (23.31 to 20.19), KL by 0.27 (1.59 to 1.32), and increases IS by 1.10 (8.13 to 9.23). This demonstrates that our generation model can serve as a strong baseline model for generation-based editing methods.</p>
+		<div class="table-responsive pt-3">
+			<table class="table table-hover pt-2">
+			<thead>
+			<tr>
+			<th style="text-align: center">Text</th>
+			<!-- <th style="text-align: center">Reference Audio</th>
+			<th style="text-align: center">SDEdit (N=1/2T)</th>
+			<th style="text-align: center">SDEdit (N=1/4T)</th> -->
+			<th style="text-align: center">Our Text-to-Audio Model</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td style="text-align: left;vertical-align:middle;width: 500px">Water flowing down a river</td>
+			<td style="text-align: center"><audio controls="controls" style="width: 480px;"><source src="audios/generation/ Water flowing down a river.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			</tr>
+			<tr>
+				<td style="text-align: left;vertical-align:middle;width: 500px">a horse galloping</td>
+				<td style="text-align: center"><audio controls="controls" style="width: 480px;"><source src="audios/generation/a horse galloping.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			</tr>
+			<tr>
+				<td style="text-align: left;vertical-align:middle;width: 500px">a person snoring</td>
+				<td style="text-align: center"><audio controls="controls" style="width: 480px;"><source src="audios/generation/a person snoring.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			</tr>
+			<tr>
+				<td style="text-align: left;vertical-align:middle;width: 500px">A woman giving a speech while group of people applauding</td>
+				<td style="text-align: center"><audio controls="controls" style="width: 480px;"><source src="audios/generation/A woman giving a speech while group of people applauding.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			</tr>
+			<tr>
+				<td style="text-align: left;vertical-align:middle;width: 500px">A young girl giving a speech while group of people applauding</td>
+				<td style="text-align: center"><audio controls="controls" style="width: 480px;"><source src="audios/generation/A young girl giving a speech while group of people applauding.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			</tr>
+			<tr>
+				<td style="text-align: left;vertical-align:middle;width: 500px">a speedboat running as wind blows into a microphone</td>
+				<td style="text-align: center"><audio controls="controls" style="width: 480px;"><source src="audios/generation/a speedboat running as wind blows into a microphone.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			</tr>
+			<tr>
+				<td style="text-align: left;vertical-align:middle;width: 500px">birds singing while ocean waves crashing</td>
+				<td style="text-align: center"><audio controls="controls" style="width: 480px;"><source src="audios/generation/birds singing while ocean waves crashing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			</tr>
+			<tr>
+				<td style="text-align: left;vertical-align:middle;width: 500px">jazz music</td>
+				<td style="text-align: center"><audio controls="controls" style="width: 480px;"><source src="audios/generation/jazz music.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			</tr>
+			<tr>
+				<td style="text-align: left;vertical-align:middle;width: 500px">Opera music</td>
+				<td style="text-align: center"><audio controls="controls" style="width: 480px;"><source src="audios/generation/Opera music.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			</tr>
+			<tr>
+				<td style="text-align: left;vertical-align:middle;width: 500px">Someone typing on a computer</td>
+				<td style="text-align: center"><audio controls="controls" style="width: 480px;"><source src="audios/generation/Someone typing on a computer.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			</tr>
+			<tr>
+				<td style="text-align: left;vertical-align:middle;width: 500px">thunder as rain falling down</td>
+				<td style="text-align: center"><audio controls="controls" style="width: 480px;"><source src="audios/generation/thunder as rain falling down.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			</tr>
+			<tr>
+				<td style="text-align: left;vertical-align:middle;width: 500px">Wind blows and insects buzz while birds chirp</td>
+				<td style="text-align: center"><audio controls="controls" style="width: 480px;"><source src="audios/generation/Wind blows and insects buzz while birds chirp.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			</tr>
+			<tr>
+				<td style="text-align: left;vertical-align:middle;width: 500px">Train passing and a short honk</td>
+				<td style="text-align: center"><audio controls="controls" style="width: 480px;"><source src="audios/generation/Train passing and a short honk.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			</tr>
+			</tbody>
+			</table>
+		</div>
+</div>
 <!-- <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">		
 	<h2 id="Ethics-Statement" style="text-align: center;">Ethics Statement</h2>
 	<p>
