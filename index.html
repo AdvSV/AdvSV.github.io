@@ -36,7 +36,7 @@
 			Zhuo Chen, &nbsp Yanqing Liu, &nbsp Huaming Wang, &nbsp Jinyu Li, &nbsp Lei He, &nbsp Sheng Zhao, &nbsp Furu Wei 
 			<p></p> -->
         </p>
-        <p><b>Microsoft</b></p>
+        <!-- <p><b>Microsoft</b></p> -->
 	</div>
 	<p>
         <b>Abstract.</b> 
@@ -61,81 +61,35 @@
 		</p>
 </div>
 
+<!-- Audio examples -->
+
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
-	<h2 id="librispeech-samples" style="text-align: center;">LibriSpeech Samples</h2>
+	<h2 id="librispeech-samples" style="text-align: center;">Inpainting Samples</h2>
 		<div class="table-responsive pt-3">
 			<table class="table table-hover pt-2">
 			<thead>
 			<tr>
 			<th style="text-align: center">Text</th>
-			<th style="text-align: center">Speaker Prompt</th>
-			<th style="text-align: center">Ground Truth</th>
-			<th style="text-align: center">Baseline</th>
-			<th style="text-align: center">VALL-E</th>
+			<th style="text-align: center">Reference Audio</th>
+			<th style="text-align: center">Baseline 1: SDEdit-Rough</th>
+			<th style="text-align: center">Baseline 2: SDEdit-Precise</th>
+			<th style="text-align: center">Ours</th>
 			</tr>
 			</thead>
 			<tbody>
-			<tr><td style="text-align: left;vertical-align:middle;width: 600px">They moved thereafter cautiously about the hut groping before and about them to find something to show that Warrenton had fulfilled his mission.</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/61-70970-0024/prompt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/61-70970-0024/gt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/61-70970-0024/yourtts.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/61-70970-0024/ours.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
 			<tr>
-			<td style="text-align: left;vertical-align:middle;width: 500px">And lay me down in thy cold bed and leave my shining lot.</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/908-157963-0027/prompt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/908-157963-0027/gt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/908-157963-0027/yourtts.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/908-157963-0027/ours.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-			<tr>
-			<td style="text-align: left;vertical-align:middle;width: 500px">Number ten, fresh nelly is waiting on you, good night husband.</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/1089-134686-0004/prompt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/1089-134686-0004/gt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/1089-134686-0004/yourtts.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/1089-134686-0004/ours.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-			<tr>
-			<td style="text-align: left;vertical-align:middle;width: 500px">Yea, his honourable worship is within, but he hath a godly minister or two with him, and likewise a leech.</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/1221-135767-0014/prompt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/1221-135767-0014/gt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/1221-135767-0014/yourtts.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/1221-135767-0014/ours.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-			<tr>
-			<td style="text-align: left;vertical-align:middle;width: 500px">Instead of shoes, the old man wore boots with turnover tops, and his blue coat had wide cuffs of gold braid.</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/1284-1180-0002/prompt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/1284-1180-0002/gt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/1284-1180-0002/yourtts.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/1284-1180-0002/ours.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-			<tr>
-			<td style="text-align: left;vertical-align:middle;width: 500px">The army found the people in poverty and left them in comparative wealth.</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/4077-13754-0000/prompt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/4077-13754-0000/gt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/4077-13754-0000/yourtts.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/4077-13754-0000/ours.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-			<tr>
-			<td style="text-align: left;vertical-align:middle;width: 500px">Thus did this humane and right minded father comfort his unhappy daughter, and her mother embracing her again, did all she could to soothe her feelings.</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/5639-40744-0020/prompt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/5639-40744-0020/gt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/5639-40744-0020/yourtts.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/5639-40744-0020/ours.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-			<tr>
-			<td style="text-align: left;vertical-align:middle;width: 500px">He was in deep converse with the clerk and entered the hall holding him by the arm.</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/61-70970-0007/prompt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/61-70970-0007/gt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/61-70970-0007/yourtts.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/librispeech/61-70970-0007/ours.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			<td style="text-align: left;vertical-align:middle;width: 340px">A bell ringing followed by a clock ticking while a baby crying far away</td>
+			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/inpainting/ref/A bell ringing followed by a clock ticking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/inpainting/bs1/A bell ringing followed by a clock ticking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/inpainting/bs2/A bell ringing followed by a clock ticking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/inpainting/ours/A bell ringing followed by a clock ticking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			</tbody>
 			</table>
 		</div>
 </div>
 
-<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+<!-- <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 	<h2 id="vctk-samples" style="text-align: center;">VCTK Samples</h2>
 		<div class="table-responsive pt-3">
 			<table class="table table-hover pt-2">
@@ -409,9 +363,9 @@
 			</tbody>
 			</table>	
 		</div>
-</div>
+</div> -->
 
-<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">		
+<!-- <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">		
 	<h2 id="Ethics-Statement" style="text-align: center;">Ethics Statement</h2>
 	<p>
 	Since VALL-E could synthesize speech that maintains speaker identity, it may carry potential risks in misuse of the model, such as spoofing voice identification or impersonating a specific speaker. 
@@ -419,7 +373,8 @@
 	If the model is generalized to unseen speakers in the real world, it should include a protocol to ensure that the speaker approves the use of their voice and a synthesized speech detection model.
 	</p>
 </div>
- 
+  -->
+
 </article>
 </main>
 </div>
