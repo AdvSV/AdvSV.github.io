@@ -65,6 +65,7 @@
 
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 	<h2 id="inpainting-samples" style="text-align: center;">Inpainting Samples</h2>
+	<p>The audio inpainting task is to complete a masked segment of an audio based on the context or provided textual description. SDEdit-Rough and SDEdit-Precise are two baseline methods, you can check more details in our paper.</p>
 		<div class="table-responsive pt-3">
 			<table class="table table-hover pt-2">
 			<thead>
@@ -155,6 +156,7 @@
 
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 	<h2 id="sr-samples" style="text-align: center;">Super-resolution Samples</h2>
+	<b>The audio super-resolution task can be viewed as completing the high-frequency information of a low-sampled reference audio (converting the low-sampled reference audio into a high-sampled target audio).</b>	
 		<div class="table-responsive pt-3">
 			<table class="table table-hover pt-2">
 			<thead>
@@ -209,6 +211,7 @@
 
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 	<h2 id="sr-samples" style="text-align: center;">Adding Samples</h2>
+	<b>The adding task is to add another sound event to the reference audio. For instance, transforming a reference audio with the caption "A baby is crying" into a target audio with the semantic information "A baby is crying while thundering in the background." It is important to note that the adding task should not only ensure that the generated target audio contains both the semantic content of the reference audio and the newly added semantic content, but also that the content of the reference audio should remain as unchanged as possible in the target audio.</b>
 		<div class="table-responsive pt-3">
 			<table class="table table-hover pt-2">
 			<thead>
@@ -284,6 +287,7 @@
 
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 	<h2 id="sr-samples" style="text-align: center;">Dropping Samples</h2>
+	<b>The dropping task aims to remove one or more sound events from the reference audio. For example, removing the sound event "dog barking" from a reference audio with the caption "A man giving a speech while a dog barking" to a target audio with the semantic description "A man giving a speech".</b>
 		<div class="table-responsive pt-3">
 			<table class="table table-hover pt-2">
 			<thead>
@@ -366,6 +370,7 @@
 
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 	<h2 id="sr-samples" style="text-align: center;">Replacement Samples</h2>
+	<b>The replacement task aims to substitute one sound event in a reference audio with another sound event. For example, replacing the sound event "bell ringing" with "fireworks" in an audio with caption "the sound of gun shooting and bell ringing" results in a target audio with the semantic description "the sound of gun shooting and bell ringing and fireworks".</b>
 		<div class="table-responsive pt-3">
 			<table class="table table-hover pt-2">
 			<thead>
