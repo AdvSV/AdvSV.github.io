@@ -5,13 +5,13 @@
 	<meta charset="utf-8">
 	<meta name="generator" content="Hugo 0.88.1" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href=""https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
-	<link rel="stylesheet" href="css/custom.css">
-	<link rel="stylesheet" href="css/normalize.css">
+	<link hinput="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" hinput=""https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+	<link rel="stylesheet" hinput="css/custom.css">
+	<link rel="stylesheet" hinput="css/normalize.css">
 
 	<title>AUDIT</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link hinput="css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 
@@ -27,7 +27,7 @@
 	<div class="text-center">
 	<h1>AUDIT:</h1>
         <h3>Audio Editing by Following Instructions with Latent Diffusion Models</h3>
-		<!-- [<a href="https://arxiv.org/abs/2301.02111">Paper</a>] -->
+		<!-- [<a hinput="https://arxiv.org/abs/2301.02111">Paper</a>] -->
 		
         
         <p class="fst-italic mb-0">
@@ -40,16 +40,17 @@
 	</div>
 	<p>
         <b>Abstract.</b> 
-		Audio editing aims to modify reference audio in line with human expectations to obtain target audio, which has a wide range of applications (e.g., repairing damaged audio, enhancing audio resolution, adding background sound effects).
-		Recently, some methods based on adding noise to the reference audio through diffusion models and then using the description of the target audio to guide denoising have achieved good results. However,
-		these methods still have some problems: 1) there is a mismatch between the inference process of audio editing and the training objectives of the text-to-audio diffusion models; 2) these methods cannot guarantee that the parts that do not need to be modified will not be edited;
-		3) a complete description of the target audio is not always available in practical scenarios. In this work, we propose \textbf{AUDIT}, a text-guided audio editing model based on the latent diffusion model. Specifically, the designs of our method includes: 1) we design human instruction templates for different editing tasks and generate paired training data based on these templates,
-		we train a diffusion model with reference audio and instructions as conditions to solve the inconsistency problem between training and inference; 2) since the reference audio directly serves as a condition of the model during the training stage, the model needs to automatically learn to ensure that the parts that do not require editing remain consistent before and after editing;
-		3) our model only requires instructions as text input, without the need for a description of the target audio. Our methods achieves state-of-the-art results in both objective and subjective metrics (e.g., LSD, KL, FD) for several text-guided audio editing tasks.
+		Audio editing aims to modify input audio in line with human expectations to obtain output audio, which has a wide range of applications (e.g., repairing damaged audio, enhancing audio resolution, adding background sound effects).
+		Recently, some methods based on adding noise to the input audio through diffusion models and then using the description of the output audio to guide denoising have achieved good results. However, these methods still have some problems:
+		1) there is a mismatch between the inference process of audio editing and the training objectives of the text-to-audio diffusion models; 2) these methods cannot guarantee that the parts that do not need to be modified will not be edited;
+		3) a complete description of the output audio is not always available in practical scenarios. In this work, we propose <b>AUDIT</b>, a text-guided audio editing model based on the latent diffusion model. Specifically,
+		the designs of our method includes: 1) we design human instruction templates for different editing tasks and generate paired training data based on these templates, we train a diffusion model with input audio and instructions as conditions to solve the inconsistency problem between training and inference;
+		2) since the input audio directly serves as a condition of the model during the training stage, the model needs to automatically learn to ensure that the parts that do not require editing remain consistent before and after editing;
+		3) our model only requires instructions as text input, without the need for a description of the output audio. Our methods achieves state-of-the-art results in both objective and subjective metrics (e.g., LSD, KL, FD) for several text-guided audio editing tasks. 
 		<br><br>
 		This page is for <b>research demonstration purposes</b> only.
 		<br><br>
-		<!-- Cross-lingual version: <a href="https://vallex-demo.github.io/">VALL-E X</a>. -->
+		<!-- Cross-lingual version: <a hinput="https://vallex-demo.github.io/">VALL-E X</a>. -->
       </p>
 </div>
 		
@@ -75,7 +76,7 @@
 			<thead>
 			<tr>
 			<th style="text-align: center">Text</th>
-			<th style="text-align: center">Reference Audio</th>
+			<th style="text-align: center">input Audio</th>
 			<th style="text-align: center">SDEdit-Rough</th>
 			<th style="text-align: center">SDEdit-Precise</th>
 			<th style="text-align: center">Ours</th>
@@ -84,70 +85,70 @@
 			<tbody>
 			<tr>
 			<td style="text-align: left;vertical-align:middle;width: 500px">A bell ringing <b>followed by</b> a clock ticking while a baby crying <b>far away</b></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/ref/A bell ringing followed by a clock ticking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/input/A bell ringing followed by a clock ticking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/bs1/A bell ringing followed by a clock ticking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/bs2/A bell ringing followed by a clock ticking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/ours/A bell ringing followed by a clock ticking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 			<td style="text-align: left;vertical-align:middle;width: 500px">Whistling with birds chirping</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/ref/Whistling with birds chirping.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/input/Whistling with birds chirping.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/bs1/Whistling with birds chirping.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/bs2/Whistling with birds chirping.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/ours/Whistling with birds chirping.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 			<td style="text-align: left;vertical-align:middle;width: 500px">A woman speaking with <b>drum beat</b> and raining in the background</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/ref/Music with rain falling and a woman speaking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/input/Music with rain falling and a woman speaking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/bs1/Music with rain falling and a woman speaking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/bs2/Music with rain falling and a woman speaking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/ours/Music with rain falling and a woman speaking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 			<td style="text-align: left;vertical-align:middle;width: 500px">A group of people are laughing</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/ref/A group of people are laughing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/input/A group of people are laughing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/bs1/A group of people are laughing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/bs2/A group of people are laughing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/ours/A group of people are laughing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 			<td style="text-align: left;vertical-align:middle;width: 500px">A person types on a keyboard</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/ref/A person types on a keyboard.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/input/A person types on a keyboard.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/bs1/A person types on a keyboard.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/bs2/A person types on a keyboard.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/ours/A person types on a keyboard.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 			<td style="text-align: left;vertical-align:middle;width: 500px">A person <b>repidly</b> types on a keyboard</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/ref/Rapid typing on a keyboard.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/input/Rapid typing on a keyboard.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/bs1/Rapid typing on a keyboard.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/bs2/Rapid typing on a keyboard.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/ours/Rapid typing on a keyboard.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 			<td style="text-align: left;vertical-align:middle;width: 500px">A toilet flushing</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/ref/A toilet flushing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/input/A toilet flushing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/bs1/A toilet flushing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/bs2/A toilet flushing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/ours/A toilet flushing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 			<td style="text-align: left;vertical-align:middle;width: 500px">An electronic device buzzing <b>followed by</b> a woman talking</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/ref/An electronic device buzzing followed by a woman talking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/input/An electronic device buzzing followed by a woman talking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/bs1/An electronic device buzzing followed by a woman talking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/bs2/An electronic device buzzing followed by a woman talking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/ours/An electronic device buzzing followed by a woman talking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 			<td style="text-align: left;vertical-align:middle;width: 500px">A <b>sudden</b> horn</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/ref/A sudden horn.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/input/A sudden horn.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/bs1/A sudden horn.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/bs2/A sudden horn.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/ours/A sudden horn.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 			<td style="text-align: left;vertical-align:middle;width: 500px">A baby cries <b>followed by</b> rustling and heavy breathing</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/ref/A baby cries followed by rustling and heavy breathing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/input/A baby cries followed by rustling and heavy breathing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/bs1/A baby cries followed by rustling and heavy breathing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/bs2/A baby cries followed by rustling and heavy breathing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/ours/A baby cries followed by rustling and heavy breathing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
@@ -160,13 +161,13 @@
 
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 	<h2 id="sr-samples" style="text-align: center;">Super-resolution Samples</h2>
-	<p>The audio super-resolution task can be viewed as completing the high-frequency information of a low-sampled reference audio (converting the low-sampled reference audio into a high-sampled target audio).</p>	
+	<p>The audio super-resolution task can be viewed as completing the high-frequency information of a low-sampled input audio (converting the low-sampled input audio into a high-sampled output audio).</p>	
 		<div class="table-responsive pt-3">
 			<table class="table table-hover pt-2">
 			<thead>
 			<tr>
 			<th style="text-align: center">Text</th>
-			<th style="text-align: center">Reference Audio</th>
+			<th style="text-align: center">input Audio</th>
 			<th style="text-align: center">SDEdit</th>
 			<th style="text-align: center">SDEdit-Precise</th>
 			<th style="text-align: center">Ours</th>
@@ -175,35 +176,35 @@
 			<tbody>
 			<tr>
 			<td style="text-align: left;vertical-align:middle;width: 500px">A baby cries and a young girl speaks briefly</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/reference/A baby cries and a young girl speaks briefly.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/input/A baby cries and a young girl speaks briefly.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/bs0/A baby cries and a young girl speaks briefly.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/bs1/A baby cries and a young girl speaks briefly.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/ours/A baby cries and a young girl speaks briefly.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 				<td style="text-align: left;vertical-align:middle;width: 500px">A car is shifting gears</td>
-				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/reference/A car is shifting gears.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/input/A car is shifting gears.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/bs0/A car is shifting gears.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/bs1/A car is shifting gears.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/ours/A car is shifting gears.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 				<td style="text-align: left;vertical-align:middle;width: 500px">A birds chirping as water lightly trickles and splashes</td>
-				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/reference/A duck chirping as water lightly trickles and splashes.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/input/A duck chirping as water lightly trickles and splashes.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/bs0/A duck chirping as water lightly trickles and splashes.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/bs1/A duck chirping as water lightly trickles and splashes.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/ours/A duck chirping as water lightly trickles and splashes.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 				<td style="text-align: left;vertical-align:middle;width: 500px">Gunfire sounds</td>
-				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/reference/Gunfire sounds with video game sounds.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/input/Gunfire sounds with video game sounds.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/bs0/Gunfire sounds with video game sounds.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/bs1/Gunfire sounds with video game sounds.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/ours/Gunfire sounds with video game sounds.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 				<td style="text-align: left;vertical-align:middle;width: 500px">Continuous crinkling in a quiet environment</td>
-				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/reference/Continuous crinkling in a quiet environment.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/input/Continuous crinkling in a quiet environment.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/bs0/Continuous crinkling in a quiet environment.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/bs1/Continuous crinkling in a quiet environment.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/sr/ours/Continuous crinkling in a quiet environment.wav" autoplay/>Your browser does not support the audio element.</audio></td>
@@ -215,13 +216,13 @@
 
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 	<h2 id="sr-samples" style="text-align: center;">Adding Samples</h2>
-	<p>The adding task is to add another sound event to the reference audio. For instance, transforming a reference audio with the caption "A baby is crying" into a target audio with the semantic information "A baby is crying while thundering in the background." It is important to note that the adding task should not only ensure that the generated target audio contains both the semantic content of the reference audio and the newly added semantic content, but also that the content of the reference audio should remain as unchanged as possible in the target audio.</p>
+	<p>The adding task is to add another sound event to the input audio. For instance, transforming a input audio with the caption "A baby is crying" into a target audio with the semantic information "A baby is crying while thundering in the background." It is important to note that the adding task should not only ensure that the generated target audio contains both the semantic content of the input audio and the newly added semantic content, but also that the content of the input audio should remain as unchanged as possible in the target audio.</p>
 		<div class="table-responsive pt-3">
 			<table class="table table-hover pt-2">
 			<thead>
 			<tr>
 			<th style="text-align: center">Text</th>
-			<th style="text-align: center">Reference Audio</th>
+			<th style="text-align: center">input Audio</th>
 			<th style="text-align: center">SDEdit (N=1/2T)</th>
 			<th style="text-align: center">SDEdit (N=1/4T)</th>
 			<th style="text-align: center">Ours</th>
@@ -230,56 +231,49 @@
 			<tbody>
 			<tr>
 			<td style="text-align: left;vertical-align:middle;width: 500px">Add clip-clop of horse hooves</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/reference/An animal whimpering, while clip-clop of horse hooves in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/input/An animal whimpering, while clip-clop of horse hooves in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/bs1/An animal whimpering, while clip-clop of horse hooves in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/bs2/An animal whimpering, while clip-clop of horse hooves in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/ours/An animal whimpering, while clip-clop of horse hooves in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 				<td style="text-align: left;vertical-align:middle;width: 500px">Add a motorboat speeding in the background</td>
-				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/reference/An attempt to start an engine, some part of it sparks, while motorboat speeding in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/bs1/An attempt to start an engine, some part of it sparks, while motorboat speeding in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/bs2/An attempt to start an engine, some part of it sparks, while motorboat speeding in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/ours/An attempt to start an engine, some part of it sparks, while motorboat speeding in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-			<tr>
-				<td style="text-align: left;vertical-align:middle;width: 500px">Add a motorboat speeding in the background</td>
-				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/reference/An attempt to start an engine, some part of it sparks, while motorboat speeding in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/input/An attempt to start an engine, some part of it sparks, while motorboat speeding in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/bs1/An attempt to start an engine, some part of it sparks, while motorboat speeding in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/bs2/An attempt to start an engine, some part of it sparks, while motorboat speeding in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/ours/An attempt to start an engine, some part of it sparks, while motorboat speeding in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 				<td style="text-align: left;vertical-align:middle;width: 500px">Add the sound of knocking in the middle</td>
-				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/reference/Child singing, while knock in the middle.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/input/Child singing, while knock in the middle.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/bs1/Child singing, while knock in the middle.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/bs2/Child singing, while knock in the middle.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/ours/Child singing, while knock in the middle.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 				<td style="text-align: left;vertical-align:middle;width: 500px">Add a bell in the beginning</td>
-				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/reference/Machine gun, while bell in the beginning.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/input/Machine gun, while bell in the beginning.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/bs1/Machine gun, while bell in the beginning.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/bs2/Machine gun, while bell in the beginning.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/ours/Machine gun, while bell in the beginning.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 				<td style="text-align: left;vertical-align:middle;width: 500px">Add a car horn honks several times loudly nearby in the background</td>
-				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/reference/Multiple loud engines race down a road, while a car horn honks several times loudly nearby in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/input/Multiple loud engines race down a road, while a car horn honks several times loudly nearby in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/bs1/Multiple loud engines race down a road, while a car horn honks several times loudly nearby in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/bs2/Multiple loud engines race down a road, while a car horn honks several times loudly nearby in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/ours/Multiple loud engines race down a road, while a car horn honks several times loudly nearby in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 				<td style="text-align: left;vertical-align:middle;width: 500px">Add a short sound of hi-hat in the end</td>
-				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/reference/Music of Africa, while hi-hat in the end.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/input/Music of Africa, while hi-hat in the end.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/bs1/Music of Africa, while hi-hat in the end.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/bs2/Music of Africa, while hi-hat in the end.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/ours/Music of Africa, while hi-hat in the end.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 				<td style="text-align: left;vertical-align:middle;width: 500px">Add: bowed string instrument in the middle</td>
-				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/reference/add bowed string instrument.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/input/add bowed string instrument.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/bs1/add bowed string instrument.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/bs2/add bowed string instrument.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/add/ours/add bowed string instrument.wav" autoplay/>Your browser does not support the audio element.</audio></td>
@@ -291,13 +285,13 @@
 
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 	<h2 id="sr-samples" style="text-align: center;">Dropping Samples</h2>
-	<p>The dropping task aims to remove one or more sound events from the reference audio. For example, removing the sound event "dog barking" from a reference audio with the caption "A man giving a speech while a dog barking" to a target audio with the semantic description "A man giving a speech".</p>
+	<p>The dropping task aims to remove one or more sound events from the input audio. For example, removing the sound event "dog barking" from a input audio with the caption "A man giving a speech while a dog barking" to a target audio with the semantic description "A man giving a speech".</p>
 		<div class="table-responsive pt-3">
 			<table class="table table-hover pt-2">
 			<thead>
 			<tr>
 			<th style="text-align: center">Text</th>
-			<th style="text-align: center">Reference Audio</th>
+			<th style="text-align: center">input Audio</th>
 			<th style="text-align: center">SDEdit (N=1/2T)</th>
 			<th style="text-align: center">SDEdit (N=1/4T)</th>
 			<th style="text-align: center">Ours</th>
@@ -306,63 +300,63 @@
 			<tbody>
 			<tr>
 			<td style="text-align: left;vertical-align:middle;width: 500px">Drop the sound of a duck quacking in water</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/reference/A bird whistles continuously, while a duck quacking in water in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/input/A bird whistles continuously, while a duck quacking in water in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/bs1/A bird whistles continuously, while a duck quacking in water in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/bs2/A bird whistles continuously, while a duck quacking in water in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/ours/A bird whistles continuously, while a duck quacking in water in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 				<td style="text-align: left;vertical-align:middle;width: 500px">Drop people speaking</td>
-				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/reference/A fly buzzes the microphone, while a woman gives a speech in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/input/A fly buzzes the microphone, while a woman gives a speech in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/bs1/A fly buzzes the microphone, while a woman gives a speech in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/bs2/A fly buzzes the microphone, while a woman gives a speech in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/ours/A fly buzzes the microphone, while a woman gives a speech in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 				<td style="text-align: left;vertical-align:middle;width: 500px">Drop: bell rings repetitive chiming sounds</td>
-				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/reference/A small baby is laughing, while a building bell rings repetitive chiming sounds in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/input/A small baby is laughing, while a building bell rings repetitive chiming sounds in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/bs1/A small baby is laughing, while a building bell rings repetitive chiming sounds in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/bs2/A small baby is laughing, while a building bell rings repetitive chiming sounds in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/ours/A small baby is laughing, while a building bell rings repetitive chiming sounds in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 				<td style="text-align: left;vertical-align:middle;width: 500px">Drop: water gurgles from a spout</td>
-				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/reference/Cats meowing insistently, while water gurgles from a spout in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/input/Cats meowing insistently, while water gurgles from a spout in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/bs1/Cats meowing insistently, while water gurgles from a spout in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/bs2/Cats meowing insistently, while water gurgles from a spout in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/ours/Cats meowing insistently, while water gurgles from a spout in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 				<td style="text-align: left;vertical-align:middle;width: 500px">Drop the sound of dishes and pots and pans in the middle</td>
-				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/reference/Cheering, while dishes and pots and pans in the middle.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/input/Cheering, while dishes and pots and pans in the middle.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/bs1/Cheering, while dishes and pots and pans in the middle.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/bs2/Cheering, while dishes and pots and pans in the middle.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/ours/Cheering, while dishes and pots and pans in the middle.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 				<td style="text-align: left;vertical-align:middle;width: 500px">Drop: pouring water</td>
-				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/reference/Christian music, while pouring water in the middle.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/input/Christian music, while pouring water in the middle.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/bs1/Christian music, while pouring water in the middle.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/bs2/Christian music, while pouring water in the middle.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/ours/Christian music, while pouring water in the middle.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 				<td style="text-align: left;vertical-align:middle;width: 500px">Drop people cheering</td>
-				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/reference/Salsa music, while cheering in the beginning.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/input/Salsa music, while cheering in the beginning.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/bs1/Salsa music, while cheering in the beginning.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/bs2/Salsa music, while cheering in the beginning.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/ours/Salsa music, while cheering in the beginning.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 				<td style="text-align: left;vertical-align:middle;width: 500px">Drop: a woman talking</td>
-				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/reference/Whistling, while female speech and woman speaking in the beginning.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/input/Whistling, while female speech and woman speaking in the beginning.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/bs1/Whistling, while female speech and woman speaking in the beginning.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/bs2/Whistling, while female speech and woman speaking in the beginning.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/ours/Whistling, while female speech and woman speaking in the beginning.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 				<td style="text-align: left;vertical-align:middle;width: 500px">Drop a short firework explosion in the end</td>
-				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/reference/Vehicle horn, car horn, honking, while fireworks in the end.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/input/Vehicle horn, car horn, honking, while fireworks in the end.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/bs1/Vehicle horn, car horn, honking, while fireworks in the end.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/bs2/Vehicle horn, car horn, honking, while fireworks in the end.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/drop/ours/Vehicle horn, car horn, honking, while fireworks in the end.wav" autoplay/>Your browser does not support the audio element.</audio></td>
@@ -374,13 +368,13 @@
 
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 	<h2 id="sr-samples" style="text-align: center;">Replacement Samples</h2>
-	<p>The replacement task aims to substitute one sound event in a reference audio with another sound event. For example, replacing the sound event "bell ringing" with "fireworks" in an audio with caption "the sound of gun shooting and bell ringing" results in a target audio with the semantic description "the sound of gun shooting and bell ringing and fireworks".</p>
+	<p>The replacement task aims to substitute one sound event in a input audio with another sound event. For example, replacing the sound event "bell ringing" with "fireworks" in an audio with caption "the sound of gun shooting and bell ringing" results in a target audio with the semantic description "the sound of gun shooting and bell ringing and fireworks".</p>
 		<div class="table-responsive pt-3">
 			<table class="table table-hover pt-2">
 			<thead>
 			<tr>
 			<th style="text-align: center">Text</th>
-			<th style="text-align: center">Reference Audio</th>
+			<th style="text-align: center">input Audio</th>
 			<th style="text-align: center">SDEdit (N=1/2T)</th>
 			<th style="text-align: center">SDEdit (N=1/4T)</th>
 			<th style="text-align: center">Ours</th>
@@ -389,35 +383,55 @@
 			<tbody>
 			<tr>
 			<td style="text-align: left;vertical-align:middle;width: 500px">Replace: wind instrument to drum kit</td>
+<<<<<<< HEAD
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/refernece/Replace: wind instrument and woodwind instrument to drum kit.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+=======
+			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/input/Replace: wind instrument and woodwind instrument to drum kit.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+>>>>>>> 8f838feb622058dee03e189e7b466e3156ad5b6c
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/bs0/Replace: wind instrument and woodwind instrument to drum kit.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/bs1/Replace: wind instrument and woodwind instrument to drum kit.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/ours/Replace: wind instrument and woodwind instrument to drum kit.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 				<td style="text-align: left;vertical-align:middle;width: 500px">Replace dropping coin with the sound of something tearing</td>
+<<<<<<< HEAD
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/refernece/Replace: coin (dropping) to tearing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+=======
+				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/input/Replace: coin (dropping) to tearing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+>>>>>>> 8f838feb622058dee03e189e7b466e3156ad5b6c
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/bs0/Replace: coin (dropping) to tearing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/bs1/Replace: coin (dropping) to tearing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/ours/Replace: coin (dropping) to tearing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 				<td style="text-align: left;vertical-align:middle;width: 500px">Replace: laughter to trumpet</td>
+<<<<<<< HEAD
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/refernece/Replace: laughter to trumpet.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+=======
+				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/input/Replace: laughter to trumpet.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+>>>>>>> 8f838feb622058dee03e189e7b466e3156ad5b6c
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/bs0/Replace: laughter to trumpet.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/bs1/Replace: laughter to trumpet.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/ours/Replace: laughter to trumpet.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 				<td style="text-align: left;vertical-align:middle;width: 500px">Replace the sound of squeak to the sound of clapping</td>
+<<<<<<< HEAD
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/refernece/Replace: squeak to clapping.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+=======
+				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/input/Replace: squeak to clapping.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+>>>>>>> 8f838feb622058dee03e189e7b466e3156ad5b6c
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/bs0/Replace: squeak to clapping.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/bs1/Replace: squeak to clapping.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/ours/Replace: squeak to clapping.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 				<td style="text-align: left;vertical-align:middle;width: 500px">Replace clink with fart</td>
+<<<<<<< HEAD
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/refernece/Replace: chink and clink to fart.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+=======
+				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/input/Replace: chink and clink to fart.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+>>>>>>> 8f838feb622058dee03e189e7b466e3156ad5b6c
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/bs0/Replace: chink and clink to fart.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/bs1/Replace: chink and clink to fart.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/re/ours/Replace: chink and clink to fart.wav" autoplay/>Your browser does not support the audio element.</audio></td>
@@ -429,13 +443,13 @@
 
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 	<h2 id="sr-samples" style="text-align: center;">Text-to-Audio Generation</h2>
-	<p>Since we compare with generative model-based audio editing baseline methods, we also train a text-to-audio latent diffusion model. Our model achieves the best performance in three objective metrics, FD, KL, and IS, and only uses AC and a subset of AS96 as training data. Compared to the previously best-performing model (<a href="https://audioldm.github.io/">AudioLDM</a>), our model reduces FD by 3.12 (23.31 to 20.19), KL by 0.27 (1.59 to 1.32), and increases IS by 1.10 (8.13 to 9.23). This demonstrates that our generation model can serve as a strong baseline model for generation-based editing methods.</p>
+	<p>Since we compare with generative model-based audio editing baseline methods, we also train a text-to-audio latent diffusion model. Our model achieves the best performance in three objective metrics, FD, KL, and IS, and only uses AC and a subset of AS96 as training data. Compared to the previously best-performing model (<a hinput="https://audioldm.github.io/">AudioLDM</a>), our model reduces FD by 3.12 (23.31 to 20.19), KL by 0.27 (1.59 to 1.32), and increases IS by 1.10 (8.13 to 9.23). This demonstrates that our generation model can serve as a strong baseline model for generation-based editing methods.</p>
 		<div class="table-responsive pt-3">
 			<table class="table table-hover pt-2">
 			<thead>
 			<tr>
 			<th style="text-align: center">Text</th>
-			<!-- <th style="text-align: center">Reference Audio</th>
+			<!-- <th style="text-align: center">input Audio</th>
 			<th style="text-align: center">SDEdit (N=1/2T)</th>
 			<th style="text-align: center">SDEdit (N=1/4T)</th> -->
 			<th style="text-align: center">Our Text-to-Audio Model</th>
