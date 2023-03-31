@@ -40,12 +40,10 @@
 	</div>
 	<p>
         <b>Abstract.</b> 
-		Audio editing aims to modify input audio in accordance with human expectations and is applicable for various purposes, such as adding background sound effects, replacing a musical instrument, and repairing damaged audio.
-		Recently, some methods have achieved good results by adding noise to the input audio and then using the description of the output audio to guide denoising through diffusion models. However,
-		these methods still have some problems: 1) these methods based on pre-trained text-to-audio diffusion models have not been trained on editing tasks and cannot ensure ideal editing effects; 2) These methods can erroneously modify parts that do not require editing; 3) these methods need a complete description of the output audio, which is not always available in practical scenarios.
-		In this work, we propose <b>AUDIT</b>, a text-guided audio editing model based on the latent diffusion model. Specifically, our method has three main design features. 1) We create human instruction templates for various editing tasks and produce triplet data for training (input audio, output audio, instruction).
-		We fine-tune a diffusion model using input audio and instructions as conditions. 2) Since the input audio serves as a condition for the model, the model automatically learns to do not modify parts that do not need to be edited. 3) Our model only needs editing instructions as text input.
-		Our method achieves state-of-the-art results in both objective and subjective metrics (e.g., LSD, KL, FD, OVL, and REL) for several text-guided audio editing tasks.	
+		Audio editing is applicable for various purposes, such as adding background sound effects, replacing a musical instrument, and repairing damaged audio.
+		Recently, some diffusion-based methods achieved zero-shot editing by adding noise to the input audio and then using the description of the output audio to guide denoising.
+		However, these methods still have some problems: 1) they have not been trained on editing tasks and cannot ensure ideal editing effects; 2) they can erroneously modify parts that do not require editing; 3) they need a complete description of the output audio, which is not always available and necessary in practical scenarios. In this work,
+		we propose <b>AUDIT</b>, a text-guided audio editing model based on the latent diffusion model. Specifically, our method has three main design features: 1) we generate triplet data (instruction, input audio, output audio) for different audio editing tasks and train a diffusion model using input audio and instructions as conditions; 2) since the input audio serves as a condition for the model, the model automatically learns to do not modify parts that do not need to be edited; 3) our model only needs editing instructions as text input. Our method achieves state-of-the-art results in both objective and subjective metrics for several text-guided audio editing tasks.	
 		<br><br>
 		This page is for <b>research demonstration purposes</b> only.
 		<br><br>
