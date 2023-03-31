@@ -61,9 +61,7 @@
 	</p>
 	</body>
 		<p>
-		Demonstration of the effect of our model. Our model accepts the mel-spectrogram of the
-		input audio and the editing instructions as conditional inputs. Our model consists of a VAE, a T5 text
-		encoder, and a diffusion network based on U-Net.
+		Demonstration of the effect of our model. Our model accepts the mel-spectrogram of the input audio and the editing instructions as conditional inputs. Our model consists of a VAE, a T5 text encoder, and a diffusion network.
 		</p>
 </div>
 
@@ -80,27 +78,27 @@
 			</thead>
 			<tbody>
 			<tr>
-			<td style="text-align: left;vertical-align:middle;width: 500px">Add a car horn honks several times loudly in the background</td>
+			<td style="text-align: left;vertical-align:middle;width: 500px"><b>Add</b> a car horn honks several times loudly <b>in the background</b></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 320px;"><source src="audios/add/input/Multiple loud engines race down a road, while a car horn honks several times loudly nearby in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			<td style="text-align: center"><audio controls="controls" style="width: 320px;"><source src="audios/add/ours/Multiple loud engines race down a road, while a car horn honks several times loudly nearby in the background.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
-				<td style="text-align: left;vertical-align:middle;width: 500px">Drop the sound of a woman talking</td>
+				<td style="text-align: left;vertical-align:middle;width: 500px"><b>Drop</b> the sound of a woman talking</td>
 				<td style="text-align: center"><audio controls="controls" style="width: 320px;"><source src="audios/drop/input/Whistling, while female speech and woman speaking in the beginning.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 320px;"><source src="audios/drop/ours/Whistling, while female speech and woman speaking in the beginning.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
-				<td style="text-align: left;vertical-align:middle;width: 500px">Replace laughter to trumpet</td>
+				<td style="text-align: left;vertical-align:middle;width: 500px"><b>Replace</b> laughter <b>to</b> trumpet</td>
 				<td style="text-align: center"><audio controls="controls" style="width: 320px;"><source src="audios/re/input/Replace: laughter to trumpet.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 320px;"><source src="audios/re/ours/Replace: laughter to trumpet.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
-				<td style="text-align: left;vertical-align:middle;width: 500px">Inpaint</td>
-				<td style="text-align: center"><audio controls="controls" style="width: 320px;"><source src="audios/inpainting/input/A baby cries followed by rustling and heavy breathing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-				<td style="text-align: center"><audio controls="controls" style="width: 320px;"><source src="audios/inpainting/ours/A baby cries followed by rustling and heavy breathing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+				<td style="text-align: left;vertical-align:middle;width: 500px"><b>Inpaint</b></td>
+				<td style="text-align: center"><audio controls="controls" style="width: 320px;"><source src="audios/inpainting/input/Music with rain falling and a woman speaking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+				<td style="text-align: center"><audio controls="controls" style="width: 320px;"><source src="audios/inpainting/ours/Music with rain falling and a woman speaking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
-				<td style="text-align: left;vertical-align:middle;width: 500px">Perform Super-resolution</td>
+				<td style="text-align: left;vertical-align:middle;width: 500px"><b>Perform Super-resolution</b></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 320px;"><source src="audios/sr/input/A duck chirping as water lightly trickles and splashes.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 				<td style="text-align: center"><audio controls="controls" style="width: 320px;"><source src="audios/sr/ours/A duck chirping as water lightly trickles and splashes.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
@@ -362,11 +360,10 @@
 			</thead>
 			<tbody>
 			<tr>
-			<td style="text-align: left;vertical-align:middle;width: 500px">A woman speaking with <b>drum beat</b> and raining in the background</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/input/Music with rain falling and a woman speaking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/bs1/Music with rain falling and a woman speaking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/bs2/Music with rain falling and a woman speaking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/ours/Music with rain falling and a woman speaking.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			<td style="text-align: left;vertical-align:middle;width: 500px">A toilet flushing.</td>
+			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/input/A toilet flushing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/bs1/A toilet flushing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+			<td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/inpainting/ours/A toilet flushing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
 			</tr>
 			<tr>
 			<td style="text-align: left;vertical-align:middle;width: 500px">A group of people are laughing</td>
