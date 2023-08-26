@@ -25,23 +25,24 @@
 
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 	<div class="text-center">
-	<h1>AUDIT:</h1>
-        <h3>Audio Editing by Following Instructions with Latent Diffusion Models</h3>
-<!-- 		[<a href="https://arxiv.org/abs/2304.00830">Paper</a>]
+	<h1>AdvSV:</h1>
+        <h3>An Investigation of Target Adversarial Attacks Over the Air to Automatic Speaker Verification</h3>
+<!-- 		[<a href="Update Later">Paper</a>]
 
 
         <p class="fst-italic mb-0">
 			<br>
-			Yuancheng Wang, Zeqian Ju, Xu Tan, Lei He, Zhizheng Wu, Jiang Bian, Sheng Zhao <br>
+			 <br>
 			<p></p>
         </p>
         <!-- <p><b>Microsoft</b></p> -->
 	</div>
 	<p>
         <b>Abstract.</b> 
-		Audio editing is applicable for various purposes, such as adding background sound effects, replacing a musical instrument, and repairing damaged audio. Recently, some diffusion-based methods achieved zero-shot audio editing by using a diffusion and denoising process conditioned on the text description of the output audio. However, these methods still have some problems:
-		1) they have not been trained on editing tasks and cannot ensure good editing effects; 2) they can erroneously modify audio segments that do not require editing; 3) they need a complete description of the output audio, which is not always available or necessary in practical scenarios. In this work, we propose AUDIT, an instruction-guided audio editing model based on latent diffusion models.
-		Specifically, AUDIT has three main design features: 1) we construct triplet training data (instruction, input audio, output audio) for different audio editing tasks and train a diffusion model using instruction and input (to be edited) audio as conditions and generating output (edited) audio; 2) it can automatically learn to only modify segments that need to be edited by comparing the difference between the input and output audio; 3) it only needs edit instructions instead of full target audio descriptions as text input. AUDIT achieves state-of-the-art results in both objective and subjective metrics for several audio editing tasks (e.g., adding, dropping, replacement, inpainting, super-resolution).
+		Automatic Speaker Verification (ASV) displays strong performance under controlled conditions. Yet, current studies highlight the dangers posed by technologies like Text-to-Speech (TTS) and Voice Conversion (VC). 
+                These expose vulnerabilities in ASV systems during attack scenarios. However, the lack of benchmark datasets for adversarial attacks limits effective countermeasure assessment. 
+               Dataset differences, such as between VCTK and Voxceleb1, add complexity to performance evaluations. To tackle these issues, this paper introduces the AdvSV dataset, built upon the Voxceleb1 Verification test set. 
+                The dataset includes the latest ASV victim model, PGD-generated adversarial samples, and recorded replay attacks. This comprehensive resource provides valuable insights to enhance ASV system robustness against adversarial attacks and replay threats.
 		<br><br>
 <!-- 		This research is done in alignment with Microsoft's responsible AI principles. -->
 		<br><br>
@@ -50,11 +51,16 @@
 </div>
 		
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">		
-	<h2 id="model-overview" style="text-align: center;">Overview</h2>
+	<h2 id="dataset-overview" style="text-align: center;">Overview</h2>
 	<body>
 	<p style="text-align: center;">
 		<img src="pics/system.png" height="375" width="1050">
 	</p>
+        <p style="text-align: center;">
+		<img src="pics/system.png" height="375" width="1050">
+	</p>
+
+
 	</body>
 		<p>
 		AUDIT consists of a VAE, a T5 text encoder, and a diffusion network, and accepts the
