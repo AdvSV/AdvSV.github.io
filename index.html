@@ -25,7 +25,7 @@
 
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 	<div class="text-center">
-	<h1>An Investigation of Target Adversarial Attacks Over the Air to Automatic Speaker Verification</h1>
+	<h1>An Investigation of Over-the-Air Adversarial Attack and its Countermeasure</h1>
 <!--         <h3></h3> -->
 <!-- 		[<a href="Update Later">Paper</a>]
 
@@ -54,13 +54,13 @@
 	<h2 id="dataset-overview" style="text-align: center;">Overview</h2>
 	<body>
 	<p style="text-align: center;">
-		<img src="pics/adv_replay.png" height="375" width="1050">
+		<img src="pics/overtheari.png" height="375" width="1050">
 	</p>
 
 
 	</body>
 		<p>
-		AdvSV is a dataset crafted through adversarial attack techniques. Derived from the Voxceleb1 verification test set, it encompasses four prominent speaker verification models: RawNet3, ECAPATDNN, ResNetSE34V2, and XVector, acting as victim models.
+		Adversarial samples are generated using adversarial attacks to deceive the victim SV model. The adversarial samples are subjected to over-the-air replay and recording, simulating the physical attack process.
 		</p>
 </div>
 
@@ -296,6 +296,23 @@
 			</tbody>
 			</table>
 		</div>
+</div>
+
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">		
+	<h2 id="dataset-overview" style="text-align: center;">Success Rate of Adversarial attacks</h2>
+	<body>
+	<p style="text-align: center;">
+		<img src="pics/adv_replay.png" height="375" width="1050">
+	</p>
+
+
+	</body>
+		<p>
+		The table displays the results of both PGD attacks and ensemble PGD attacks. 
+		"Surrogate" refers to the white-box model used during the PGD or ensemble PGD attack, which is then used to perform transfer attacks on other black-box models.
+		Additionally, the attacks are simulated using three types of speakers (Sound X, Flip, SPA2100) for playback and three types of mobile devices (iPhone, Mate50, K40) for recording, mimicking the process of replay attacks.
+		In our future work, we will incorporate a broader range of attack methods, playback and recording devices, recording environments, as well as diverse white-box and black-box models.
+		</p>
 </div>
 
 
