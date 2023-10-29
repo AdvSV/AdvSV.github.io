@@ -74,6 +74,20 @@
 </div>
 
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+	<h2 id="dataset-sample-method" style="text-align: center;">Data Collection</h2>
+	<body>
+	<p>
+		The base dataset of AdvSV is sampled in the Voxceleb1 verification test set. <\br>
+		The <a href="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/meta/veri\_test.txt" target="_blank">Voxceleb1 verification test set</a> has 37,720 data samples, each including enrollment, test sample, and a label (0 for different speakers, 1 for the same speaker). <\br>
+		Due to the considerable burden in subsequent replay recording, downsampling is employed on the dataset (37,720 samples) to ease this challenge. <\br>
+		Two data downsampling principles exist. The first maintains the original speaker distribution to prevent varied distributions from impacting attack results. A vulnerable speaker dominating the downsampled set can lead to biased outcomes. The second ensures consistent SV performance between the subset and full dataset. <\br>
+		To implement these principles, the approach concatenates enrollment and test speaker IDs in each data entry, e.g. <i>0 id10270/XXXX/00001.wav id10284/XXXX/00029.wav</i> becomes <i>id10270-id10284</i>. <\br>
+		Then, each data ID undergoes a random 25\% downsampling, preserving a quarter of the data. Notably, when downsampling reaches 0 samples, one sample is retained. <\br>
+	</p>
+	</body>
+</div>
+
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 	<h2 id="sr-samples" style="text-align: center;">Demo Samples </h2>
 <!--	<p> RawNet3(A)	ECAPATDNN(B)	ResNetSE34V2(C)	XVector(D) </p>-->
 		<div class="table-responsive pt-3">
