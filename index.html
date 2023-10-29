@@ -81,7 +81,8 @@
 		Due to the considerable burden in subsequent replay recording, downsampling is employed on the dataset (37,720 samples) to ease this challenge. <br>
 		Two data downsampling principles exist. The first maintains the original speaker distribution to prevent varied distributions from impacting attack results. A vulnerable speaker dominating the downsampled set can lead to biased outcomes. The second ensures consistent SV performance between the subset and full dataset. <br>
 		To implement these principles, the approach concatenates enrollment and test speaker IDs in each data entry, e.g. <i>0 id10270/XXXX/00001.wav id10284/XXXX/00029.wav</i> becomes <i>id10270-id10284</i>. <br>
-		Then, each data ID undergoes a random 25\% downsampling, preserving a quarter of the data. Notably, when downsampling reaches 0 samples, one sample is retained. <br>
+		Then, each data ID undergoes a random 25% downsampling, preserving a quarter of the data. Notably, when downsampling reaches 0 samples, one sample is retained. <br>
+		Final retained <b>9,083</b> samples.
 	</p>
 	</body>
 </div>
