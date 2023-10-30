@@ -93,17 +93,17 @@
 	<h2 id="Resource" style="text-align: center;">Resource</h2>
 	<body>
 	<p>
-		The top folders are "Raw" and "OverTheAir", which hold adversarial samples and over-the-air adversarial samples, respectively. <br>
+		The top folders are "Raw" and "OverTheAir", which hold adversarial samples and over-the-air adversarial samples, respectively. <br><br>
 
 		In the "Raw" folder, there are "PGD" and "Ensemble_PGD", which correspond to two attack methods.
 		In the "PGD" folder, the four attacked models are recorded, along with the main attack parameters of PGD (maximum perturbation limit eps, step size alpha, and number of steps).
-		In the "Ensemble_PGD" folder, the names of the three models in the ensemble are recorded, and the last number sequence is the date and time, which can be ignored. <br>
+		In the "Ensemble_PGD" folder, the names of the three models in the ensemble are recorded, and the last number sequence is the date and time, which can be ignored. <br><br>
 
-		Inside the "OverTheAir" folder there are two more layers than "Raw", play device (high, medium, low) and record device (AndroidHigh, AndroidLow, iOS). <br>
+		Inside the "OverTheAir" folder there are two more layers than "Raw", play device (high, medium, low) and record device (AndroidHigh, AndroidLow, iOS). <br><br>
 
 		Inside each folder where wav files are stored (e.g., OverTheAir\High\iOS\Ensemble_PGD\PGD_ResNetSE34V2-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727170536), there is attackResult.txt, which records information about the attack.
 		Each line contains, enrollment file, evaluation file, whether the attack was successful (True/False), label (whether enrollment and evaluation are the same speaker), similarity score (cosine similarity), and average perturbation (ensemble only).
-		Note that the enrollment file comes from Voxceleb1, you can easily find the corresponding file through our records. <br>
+		Note that the enrollment file comes from Voxceleb1, you can easily find the corresponding file through our records. <br><br>
 
 		Below is an example of record generation for evaluation file, using <i>id10270-8jEAjG6SegY-00038_id10306-a2rD02CrRdU-00001</i>  as an example.
 		In the adversarial attack, <i>id10270/8jEAjG6SegY/00038.wav</i>  is the registered sample (R) and <i>id10306/a2rD02CrRdU/00001.wav</i>  is the test sample (A), and the adversarial attack adds perturbation to A.
