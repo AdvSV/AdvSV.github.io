@@ -2,372 +2,800 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="generator" content="Hugo 0.88.1" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href=""https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
-	<link rel="stylesheet" href="css/custom.css">
-	<link rel="stylesheet" href="css/normalize.css">
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.88.1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/normalize.css">
 
-	<title>AdvSV</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>AdvSV</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 
 <body data-new-gr-c-s-check-loaded="14.1091.0" data-gr-ext-installed="">
 
-<div class="container" >
-<header role="banner">
-</header>
-<main role="main">
-<article itemscope itemtype="https://schema.org/BlogPosting">
+<div class="container">
+    <header role="banner">
+    </header>
+    <main role="main">
+        <article itemscope itemtype="https://schema.org/BlogPosting">
 
-<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
-	<div class="text-center">
-	<h1>AdvSV: An Over-the-Air Adversarial Attack Dataset for Speaker Verification</h1>
-		If you would like to use this dataset, please send an email to 223040245@link.cuhk.edu.cn and copy it to wuzhizheng@cuhk.edu.cn. <br>
-		In the body of the email, please state your full name, organization, and purpose of use.  <br>
-		We will review and reply as soon as possible. Thank you for your support. <br>
-	</div>
-	<p>
+            <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+                <h1 style="font-size: 36px;text-align: center;"> Demo page </h1>
+                <h1 style="font-size: 32px;text-align: center;"> AdvSV: An Over-the-Air Adversarial Attack Dataset for Speaker Verification </h1>
+                <p>
+                    If you'd like to access this dataset, please send an email to 223040245@link.cuhk.edu.cn, and cc wuzhizheng@cuhk.edu.cn. In the email body, include your full
+                    name, organization, and intended use. We'll promptly review and respond. Thank you for your support. <br><br>
 
-      </p>
-</div>
-
-
-<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
-	<h2 id="abstract" style="text-align: center;">Abstract</h2>
-	<body>
-	<p>
-		Automatic Speaker Verification (ASV) displays strong performance under controlled conditions. Yet, current studies highlight the dangers posed by technologies like Text-to-Speech (TTS) and Voice Conversion (VC).
-		These expose vulnerabilities in ASV systems during attack scenarios. However, the lack of benchmark datasets for adversarial attacks limits effective countermeasure assessment.
-		Dataset differences, such as between VCTK and Voxceleb1, add complexity to performance evaluations. To tackle these issues, this paper introduces the AdvSV dataset, built upon the Voxceleb1 Verification test set.
-		The dataset includes the latest ASV victim model, PGD-generated adversarial samples, and recorded replay attacks. This comprehensive resource provides valuable insights to enhance ASV system robustness against adversarial attacks and replay threats.
-	</p>
-	</body>
-
-</div>
-		
-<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">		
-	<h2 id="dataset-overview" style="text-align: center;">Overview</h2>
-	<body>
-	<p>
-		<b>387,160</b> utterances <br>
-		<b>894</b> hours <br>
-		<b>2</b> attack methods <br>
-		<b>4</b> ASV models <br>
-		<b>3</b> replay devices <br>
-		<b>3</b> recording devices <br>
-	</p>
-
-	<p style="text-align: center;">
-		<img src="pics/overtheari.png" height="375" width="1050">
-	</p>
+                    If you want to know about AdvSV's build process, catalogue structure, baseline model, etc., please visit https://github.com/AdvSV/AdvSV.github.io
+                </p>
+            </div>
 
 
-	</body>
-		<p>
-		Adversarial samples are generated using adversarial attacks to deceive the victim SV model. The adversarial samples are subjected to over-the-air replay and recording, simulating the physical attack process.
-		</p>
-</div>
+            <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+                <h2 id="abstract" style="text-align: center;">Abstract</h2>
+                <body>
+                <p>
+                    Automatic Speaker Verification (ASV) displays strong performance under controlled conditions. Yet, current studies highlight the dangers posed by technologies
+                    like Text-to-Speech (TTS) and Voice Conversion (VC).
+                    These expose vulnerabilities in ASV systems during attack scenarios. However, the lack of benchmark datasets for adversarial attacks limits effective
+                    countermeasure assessment.
+                    Dataset differences, such as between VCTK and Voxceleb1, add complexity to performance evaluations. To tackle these issues, this paper introduces the AdvSV
+                    dataset, built upon the Voxceleb1 Verification test set.
+                    The dataset includes the latest ASV victim model, PGD-generated adversarial samples, and recorded replay attacks. This comprehensive resource provides valuable
+                    insights to enhance ASV system robustness against adversarial attacks and replay threats.
+                </p>
+                </body>
 
-<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
-	<h2 id="dataset-sample-method" style="text-align: center;">Data Collection</h2>
-	<body>
-	<p>
-		The base dataset of AdvSV is sampled in the Voxceleb1 verification test set. <br>
-		The <a href="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/meta/veri_test.txt" target="_blank">Voxceleb1 verification test set</a> has 37,720 data samples, each including enrollment, test sample, and a label (0 for different speakers, 1 for the same speaker). <br>
-		Due to the considerable burden in subsequent replay recording, downsampling is employed on the dataset (37,720 samples) to ease this challenge. <br>
-		Two data downsampling principles exist. The first maintains the original speaker distribution to prevent varied distributions from impacting attack results. A vulnerable speaker dominating the downsampled set can lead to biased outcomes. The second ensures consistent SV performance between the subset and full dataset. <br>
-		To implement these principles, the approach concatenates enrollment and test speaker IDs in each data entry, e.g. <i>0 id10270/XXXX/00001.wav id10284/XXXX/00029.wav</i> becomes <i>id10270-id10284</i>. <br>
-		Then, each data ID undergoes a random 25% downsampling, preserving a quarter of the data. Notably, when downsampling reaches 0 samples, one sample is retained. <br>
-		Final retained <b>9,083</b> samples.
-		<i>Currently, in order to reduce the burden of replay recording, for the Over-the-air attack, we only record the results of the target attack, i.e., the data pairs labeled as "different speakers", and the goal of the attack is to make the speaker verification model recognize them as the "same speaker".</i>
-	</p>
-	</body>
-</div>
+            </div>
 
-
-<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
-	<h2 id="Resource" style="text-align: center;">Resource</h2>
-	<body>
-	<p>
-		The top folders are "Raw" and "OverTheAir", which hold adversarial samples and over-the-air adversarial samples, respectively. <br><br>
-
-		In the "Raw" folder, there are "PGD" and "Ensemble_PGD", which correspond to two attack methods.
-		In the "PGD" folder, the four attacked models are recorded, along with the main attack parameters of PGD (maximum perturbation limit eps, step size alpha, and number of steps).
-		In the "Ensemble_PGD" folder, the names of the three models in the ensemble are recorded, and the last number sequence is the date and time, which can be ignored. <br><br>
-
-		Inside the "OverTheAir" folder there are two more layers than "Raw", play device (high, medium, low) and record device (AndroidHigh, AndroidLow, iOS). <br><br>
-
-		Inside each folder where wav files are stored (e.g., OverTheAir\High\iOS\Ensemble_PGD\PGD_ResNetSE34V2-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727170536), there is attackResult.txt, which records information about the attack.
-		Each line contains, enrollment file, evaluation file, whether the attack was successful (True/False), label (whether enrollment and evaluation are the same speaker), similarity score (cosine similarity), and average perturbation (ensemble only).
-		Note that the enrollment file comes from Voxceleb1, you can easily find the corresponding file through our records. <br><br>
-
-		Below is an example of record generation for evaluation file, using <i>id10270-8jEAjG6SegY-00038_id10306-a2rD02CrRdU-00001</i>  as an example.
-		In the adversarial attack, <i>id10270/8jEAjG6SegY/00038.wav</i>  is the registered sample (R) and <i>id10306/a2rD02CrRdU/00001.wav</i>  is the test sample (A), and the adversarial attack adds perturbation to A.
+            <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+                <h2 id="dataset-overview" style="text-align: center;">Overview</h2>
+                <body>
 
 
-	</p>
-	</body>
-</div>
-
-<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
-	<h2 id="sr-samples" style="text-align: center;">Demo Samples </h2>
-<!--	<p> RawNet3(A)	ECAPATDNN(B)	ResNetSE34V2(C)	XVector(D) </p>-->
-		<div class="table-responsive pt-3">
-			<table class="table table-hover pt-2">
-			<thead>
-			<tr>
-			<th style="text-align: center">Enrollment File</th>
-			<th style="text-align: center">Test File</th>
-			<th style="text-align: center">Enrollment Audio</th>
-			<th style="text-align: center">Test Audio</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-			<td style="text-align: center;vertical-align:middle;width: 400px"> id10270/5r0dWxy17C8/00001 </td>
-			<td style="text-align: center;vertical-align:middle;width: 400px"> id10292/gm6PJowclv0/00027 </td>
-			<td style="text-align: center"><audio controls="controls" style="width: 220px;"><source src="audios/ori/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027/00001.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 220px;"><source src="audios/ori/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027/00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-			</tbody>
-			</table>
-		</div>
-</div>
-	
-
-<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
-	<h2 id="sr-samples" style="text-align: center;">Demo-based PGD Attack and Replay Samples </h2>
-		<div class="table-responsive pt-3">
-			<table class="table table-hover pt-2">
-			<thead>
-			<tr>
-			<th style="text-align: center">Speaker</th>
-			<th style="text-align: center">Recorder</th>
-			<th style="text-align: center">RawNet3</th>
-			<th style="text-align: center">ECAPATDNN</th>
-			<th style="text-align: center">ResNetSE34V2</th>
-			<th style="text-align: center">XVector</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-			<td style="text-align: center;vertical-align:middle;width: 100px">NA</td>
-			<td style="text-align: center;vertical-align:middle;width: 100px">NA</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/NA/PGD_RawNet3-model_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/NA/PGD_ECAPATDNN-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/NA/PGD_ResNetSE34V2-ResNetSE34V2_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/NA/PGD_XVector-model000000230_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-				
-			<tr>
-			<td style="text-align: center;vertical-align:middle;width: 100px">High</td>
-			<td style="text-align: center;vertical-align:middle;width: 100px">iOS</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/iOS/PGD_RawNet3-model_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/iOS/PGD_ECAPATDNN-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/iOS/PGD_ResNetSE34V2-ResNetSE34V2_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/iOS/PGD_XVector-model000000230_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-			<tr>
-			<td style="text-align: center;vertical-align:middle;width: 100px">High</td>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Android-High</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/Android-High/PGD_RawNet3-model_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/Android-High/PGD_ECAPATDNN-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/Android-High/PGD_ResNetSE34V2-ResNetSE34V2_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/Android-High/PGD_XVector-model000000230_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-			<tr>
-			<td style="text-align: center;vertical-align:middle;width: 100px">High</td>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Android-Low</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/Android-Low/PGD_RawNet3-model_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/Android-Low/PGD_ECAPATDNN-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/Android-Low/PGD_ResNetSE34V2-ResNetSE34V2_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/Android-Low/PGD_XVector-model000000230_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-
-			<tr>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Medium</td>
-			<td style="text-align: center;vertical-align:middle;width: 100px">iOS</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/iOS/PGD_RawNet3-model_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/iOS/PGD_ECAPATDNN-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/iOS/PGD_ResNetSE34V2-ResNetSE34V2_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/iOS/PGD_XVector-model000000230_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-			<tr>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Medium</td>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Android-High</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/Android-High/PGD_RawNet3-model_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/Android-High/PGD_ECAPATDNN-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/Android-High/PGD_ResNetSE34V2-ResNetSE34V2_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/Android-High/PGD_XVector-model000000230_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-			<tr>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Medium</td>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Android-Low</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/Android-Low/PGD_RawNet3-model_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/Android-Low/PGD_ECAPATDNN-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/Android-Low/PGD_ResNetSE34V2-ResNetSE34V2_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/Android-Low/PGD_XVector-model000000230_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-
-			<tr>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Low</td>
-			<td style="text-align: center;vertical-align:middle;width: 100px">iOS</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/iOS/PGD_RawNet3-model_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/iOS/PGD_ECAPATDNN-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/iOS/PGD_ResNetSE34V2-ResNetSE34V2_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/iOS/PGD_XVector-model000000230_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-			<tr>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Low</td>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Android-High</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/Android-High/PGD_RawNet3-model_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/Android-High/PGD_ECAPATDNN-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/Android-High/PGD_ResNetSE34V2-ResNetSE34V2_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/Android-High/PGD_XVector-model000000230_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-			<tr>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Low</td>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Android-Low</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/Android-Low/PGD_RawNet3-model_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/Android-Low/PGD_ECAPATDNN-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/Android-Low/PGD_ResNetSE34V2-ResNetSE34V2_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/Android-Low/PGD_XVector-model000000230_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-			
-			</tbody>
-			</table>
-		</div>
-</div>
-
-<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
-	<h2 id="sr-samples" style="text-align: center;">Demo-based Ensemble PGD Attack and Replay Samples</h2>
-		<div class="table-responsive pt-3">
-			<table class="table table-hover pt-2">
-			<thead>
-			<tr>
-			<th style="text-align: center">Speaker</th>
-			<th style="text-align: center">Recorder</th>
-			<th style="text-align: center">B+C+D</th>
-			<th style="text-align: center">A+C+D</th>
-			<th style="text-align: center">A+B+D</th>
-			<th style="text-align: center">A+B+C</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-			<td style="text-align: center;vertical-align:middle;width: 100px">NA</td>
-			<td style="text-align: center;vertical-align:middle;width: 100px">NA</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/NA/PGD_XVector-PGD_ResNetSE34V2-PGD_ECAPATDNN-Step20-20230727171240/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/NA/PGD_XVector-PGD_ResNetSE34V2-PGD_RawNet3-Step20-20230727171220/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/NA/PGD_XVector-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727171124/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/NA/PGD_ResNetSE34V2-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727170536/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-				
-			<tr>
-			<td style="text-align: center;vertical-align:middle;width: 100px">High</td>
-			<td style="text-align: center;vertical-align:middle;width: 100px">iOS</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/iOS/PGD_XVector-PGD_ResNetSE34V2-PGD_ECAPATDNN-Step20-20230727171240/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/iOS/PGD_XVector-PGD_ResNetSE34V2-PGD_RawNet3-Step20-20230727171220/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/iOS/PGD_XVector-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727171124/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/iOS/PGD_ResNetSE34V2-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727170536/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-			<tr>
-			<td style="text-align: center;vertical-align:middle;width: 100px">High</td>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Android-High</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/Android-High/PGD_XVector-PGD_ResNetSE34V2-PGD_ECAPATDNN-Step20-20230727171240/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/Android-High/PGD_XVector-PGD_ResNetSE34V2-PGD_RawNet3-Step20-20230727171220/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/Android-High/PGD_XVector-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727171124/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/Android-High/PGD_ResNetSE34V2-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727170536/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-			<tr>
-			<td style="text-align: center;vertical-align:middle;width: 100px">High</td>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Android-Low</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/Android-Low/PGD_XVector-PGD_ResNetSE34V2-PGD_ECAPATDNN-Step20-20230727171240/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/Android-Low/PGD_XVector-PGD_ResNetSE34V2-PGD_RawNet3-Step20-20230727171220/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/Android-Low/PGD_XVector-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727171124/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/High/Android-Low/PGD_ResNetSE34V2-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727170536/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-
-			<tr>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Medium</td>
-			<td style="text-align: center;vertical-align:middle;width: 100px">iOS</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/iOS/PGD_XVector-PGD_ResNetSE34V2-PGD_ECAPATDNN-Step20-20230727171240/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/iOS/PGD_XVector-PGD_ResNetSE34V2-PGD_RawNet3-Step20-20230727171220/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/iOS/PGD_XVector-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727171124/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/iOS/PGD_ResNetSE34V2-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727170536/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-			<tr>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Medium</td>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Android-High</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/Android-High/PGD_XVector-PGD_ResNetSE34V2-PGD_ECAPATDNN-Step20-20230727171240/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/Android-High/PGD_XVector-PGD_ResNetSE34V2-PGD_RawNet3-Step20-20230727171220/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/Android-High/PGD_XVector-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727171124/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/Android-High/PGD_ResNetSE34V2-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727170536/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-			<tr>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Medium</td>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Android-Low</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/Android-Low/PGD_XVector-PGD_ResNetSE34V2-PGD_ECAPATDNN-Step20-20230727171240/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/Android-Low/PGD_XVector-PGD_ResNetSE34V2-PGD_RawNet3-Step20-20230727171220/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/Android-Low/PGD_XVector-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727171124/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Medium/Android-Low/PGD_ResNetSE34V2-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727170536/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-
-			<tr>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Low</td>
-			<td style="text-align: center;vertical-align:middle;width: 100px">iOS</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/iOS/PGD_XVector-PGD_ResNetSE34V2-PGD_ECAPATDNN-Step20-20230727171240/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/iOS/PGD_XVector-PGD_ResNetSE34V2-PGD_RawNet3-Step20-20230727171220/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/iOS/PGD_XVector-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727171124/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/iOS/PGD_ResNetSE34V2-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727170536/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-			<tr>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Low</td>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Android-High</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/Android-High/PGD_XVector-PGD_ResNetSE34V2-PGD_ECAPATDNN-Step20-20230727171240/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/Android-High/PGD_XVector-PGD_ResNetSE34V2-PGD_RawNet3-Step20-20230727171220/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/Android-High/PGD_XVector-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727171124/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/Android-High/PGD_ResNetSE34V2-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727170536/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-			<tr>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Low</td>
-			<td style="text-align: center;vertical-align:middle;width: 100px">Android-Low</td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/Android-Low/PGD_XVector-PGD_ResNetSE34V2-PGD_ECAPATDNN-Step20-20230727171240/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/Android-Low/PGD_XVector-PGD_ResNetSE34V2-PGD_RawNet3-Step20-20230727171220/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/Android-Low/PGD_XVector-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727171124/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			<td style="text-align: center"><audio controls="controls" style="width: 200px;"><source src="audios/Low/Android-Low/PGD_ResNetSE34V2-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727170536/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-			</tr>
-			
-			</tbody>
-			</table>
-		</div>
-</div>
-
-<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">		
-	<h2 id="dataset-overview" style="text-align: center;">Success Rate of Adversarial attacks</h2>
-	<body>
-	<p style="text-align: center;">
-		<img src="pics/adv_replay.png" height="375" width="1050">
-	</p>
+                <p style="text-align: center;">
+                    <img src="pics/overtheari.png" height="375" width="1050">
+                </p>
 
 
-	</body>
-		<p>
-		The table displays the results of both PGD attacks and ensemble PGD attacks. 
-		"Surrogate" refers to the white-box model used during the PGD or ensemble PGD attack, which is then used to perform transfer attacks on other black-box models.
-		Additionally, the attacks are simulated using three types of speakers (High, Medium, Low) for replay and three types of mobile devices (iOS, Android-High, Android-Low) for recording, mimicking the process of replay attacks.
-		In our future work, we will incorporate a broader range of attack methods, replay and recording devices, recording environments, as well as diverse white-box and black-box models.
-		</p>
-</div>
+                </body>
+                <p>
+                    Adversarial samples are generated using adversarial attacks to deceive the victim SV model. The adversarial samples are subjected to over-the-air replay and
+                    recording, simulating the physical attack process.
+                </p>
+            </div>
 
 
+            <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+                <h2 id="sr-samples" style="text-align: center;">Demo Samples </h2>
+                <!--	<p> RawNet3(A)	ECAPATDNN(B)	ResNetSE34V2(C)	XVector(D) </p>-->
+                <div class="table-responsive pt-3">
+                    <table class="table table-hover pt-2">
+                        <thead>
+                        <tr>
+                            <th style="text-align: center">Enrollment File</th>
+                            <th style="text-align: center">Test File</th>
+                            <th style="text-align: center">Enrollment Audio</th>
+                            <th style="text-align: center">Test Audio</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td style="text-align: center;vertical-align:middle;width: 400px"> id10270/5r0dWxy17C8/00001</td>
+                            <td style="text-align: center;vertical-align:middle;width: 400px"> id10292/gm6PJowclv0/00027</td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 220px;">
+                                    <source src="audios/ori/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027/00001.wav" autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 220px;">
+                                    <source src="audios/ori/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027/00027.wav" autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-</article>
-</main>
+
+            <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+                <h2 id="sr-samples" style="text-align: center;">Demo-based PGD Attack and Replay Samples </h2>
+                <div class="table-responsive pt-3">
+                    <table class="table table-hover pt-2">
+                        <thead>
+                        <tr>
+                            <th style="text-align: center">Speaker</th>
+                            <th style="text-align: center">Recorder</th>
+                            <th style="text-align: center">RawNet3</th>
+                            <th style="text-align: center">ECAPATDNN</th>
+                            <th style="text-align: center">ResNetSE34V2</th>
+                            <th style="text-align: center">XVector</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">NA</td>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">NA</td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/NA/PGD_RawNet3-model_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav" autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/NA/PGD_ECAPATDNN-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/NA/PGD_ResNetSE34V2-ResNetSE34V2_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/NA/PGD_XVector-model000000230_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">High</td>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">iOS</td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/iOS/PGD_RawNet3-model_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/iOS/PGD_ECAPATDNN-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/iOS/PGD_ResNetSE34V2-ResNetSE34V2_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/iOS/PGD_XVector-model000000230_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">High</td>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Android-High</td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/Android-High/PGD_RawNet3-model_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/Android-High/PGD_ECAPATDNN-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/Android-High/PGD_ResNetSE34V2-ResNetSE34V2_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/Android-High/PGD_XVector-model000000230_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">High</td>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Android-Low</td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/Android-Low/PGD_RawNet3-model_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/Android-Low/PGD_ECAPATDNN-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/Android-Low/PGD_ResNetSE34V2-ResNetSE34V2_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/Android-Low/PGD_XVector-model000000230_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Medium</td>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">iOS</td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/iOS/PGD_RawNet3-model_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/iOS/PGD_ECAPATDNN-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/iOS/PGD_ResNetSE34V2-ResNetSE34V2_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/iOS/PGD_XVector-model000000230_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Medium</td>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Android-High</td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/Android-High/PGD_RawNet3-model_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/Android-High/PGD_ECAPATDNN-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/Android-High/PGD_ResNetSE34V2-ResNetSE34V2_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/Android-High/PGD_XVector-model000000230_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Medium</td>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Android-Low</td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/Android-Low/PGD_RawNet3-model_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/Android-Low/PGD_ECAPATDNN-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/Android-Low/PGD_ResNetSE34V2-ResNetSE34V2_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/Android-Low/PGD_XVector-model000000230_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Low</td>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">iOS</td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/iOS/PGD_RawNet3-model_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/iOS/PGD_ECAPATDNN-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/iOS/PGD_ResNetSE34V2-ResNetSE34V2_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/iOS/PGD_XVector-model000000230_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Low</td>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Android-High</td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/Android-High/PGD_RawNet3-model_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/Android-High/PGD_ECAPATDNN-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/Android-High/PGD_ResNetSE34V2-ResNetSE34V2_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/Android-High/PGD_XVector-model000000230_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Low</td>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Android-Low</td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/Android-Low/PGD_RawNet3-model_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/Android-Low/PGD_ECAPATDNN-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/Android-Low/PGD_ResNetSE34V2-ResNetSE34V2_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/Android-Low/PGD_XVector-model000000230_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+                <h2 id="sr-samples" style="text-align: center;">Demo-based Ensemble PGD Attack and Replay Samples</h2>
+                <div class="table-responsive pt-3">
+                    <table class="table table-hover pt-2">
+                        <thead>
+                        <tr>
+                            <th style="text-align: center">Speaker</th>
+                            <th style="text-align: center">Recorder</th>
+                            <th style="text-align: center">B+C+D</th>
+                            <th style="text-align: center">A+C+D</th>
+                            <th style="text-align: center">A+B+D</th>
+                            <th style="text-align: center">A+B+C</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">NA</td>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">NA</td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/NA/PGD_XVector-PGD_ResNetSE34V2-PGD_ECAPATDNN-Step20-20230727171240/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/NA/PGD_XVector-PGD_ResNetSE34V2-PGD_RawNet3-Step20-20230727171220/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/NA/PGD_XVector-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727171124/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/NA/PGD_ResNetSE34V2-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727170536/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">High</td>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">iOS</td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/iOS/PGD_XVector-PGD_ResNetSE34V2-PGD_ECAPATDNN-Step20-20230727171240/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/iOS/PGD_XVector-PGD_ResNetSE34V2-PGD_RawNet3-Step20-20230727171220/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/iOS/PGD_XVector-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727171124/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/iOS/PGD_ResNetSE34V2-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727170536/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">High</td>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Android-High</td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/Android-High/PGD_XVector-PGD_ResNetSE34V2-PGD_ECAPATDNN-Step20-20230727171240/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/Android-High/PGD_XVector-PGD_ResNetSE34V2-PGD_RawNet3-Step20-20230727171220/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/Android-High/PGD_XVector-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727171124/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/Android-High/PGD_ResNetSE34V2-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727170536/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">High</td>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Android-Low</td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/Android-Low/PGD_XVector-PGD_ResNetSE34V2-PGD_ECAPATDNN-Step20-20230727171240/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/Android-Low/PGD_XVector-PGD_ResNetSE34V2-PGD_RawNet3-Step20-20230727171220/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/Android-Low/PGD_XVector-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727171124/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/High/Android-Low/PGD_ResNetSE34V2-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727170536/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Medium</td>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">iOS</td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/iOS/PGD_XVector-PGD_ResNetSE34V2-PGD_ECAPATDNN-Step20-20230727171240/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/iOS/PGD_XVector-PGD_ResNetSE34V2-PGD_RawNet3-Step20-20230727171220/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/iOS/PGD_XVector-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727171124/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/iOS/PGD_ResNetSE34V2-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727170536/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Medium</td>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Android-High</td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/Android-High/PGD_XVector-PGD_ResNetSE34V2-PGD_ECAPATDNN-Step20-20230727171240/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/Android-High/PGD_XVector-PGD_ResNetSE34V2-PGD_RawNet3-Step20-20230727171220/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/Android-High/PGD_XVector-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727171124/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/Android-High/PGD_ResNetSE34V2-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727170536/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Medium</td>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Android-Low</td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/Android-Low/PGD_XVector-PGD_ResNetSE34V2-PGD_ECAPATDNN-Step20-20230727171240/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/Android-Low/PGD_XVector-PGD_ResNetSE34V2-PGD_RawNet3-Step20-20230727171220/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/Android-Low/PGD_XVector-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727171124/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Medium/Android-Low/PGD_ResNetSE34V2-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727170536/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Low</td>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">iOS</td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/iOS/PGD_XVector-PGD_ResNetSE34V2-PGD_ECAPATDNN-Step20-20230727171240/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/iOS/PGD_XVector-PGD_ResNetSE34V2-PGD_RawNet3-Step20-20230727171220/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/iOS/PGD_XVector-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727171124/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/iOS/PGD_ResNetSE34V2-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727170536/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Low</td>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Android-High</td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/Android-High/PGD_XVector-PGD_ResNetSE34V2-PGD_ECAPATDNN-Step20-20230727171240/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/Android-High/PGD_XVector-PGD_ResNetSE34V2-PGD_RawNet3-Step20-20230727171220/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/Android-High/PGD_XVector-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727171124/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/Android-High/PGD_ResNetSE34V2-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727170536/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Low</td>
+                            <td style="text-align: center;vertical-align:middle;width: 100px">Android-Low</td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/Android-Low/PGD_XVector-PGD_ResNetSE34V2-PGD_ECAPATDNN-Step20-20230727171240/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/Android-Low/PGD_XVector-PGD_ResNetSE34V2-PGD_RawNet3-Step20-20230727171220/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/Android-Low/PGD_XVector-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727171124/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                            <td style="text-align: center">
+                                <audio controls="controls" style="width: 200px;">
+                                    <source src="audios/Low/Android-Low/PGD_ResNetSE34V2-PGD_ECAPATDNN-PGD_RawNet3-Step20-20230727170536/id10270-5r0dWxy17C8-00001_id10292-gm6PJowclv0-00027.wav"
+                                            autoplay/>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </article>
+    </main>
 </div>
 
 </body>
