@@ -2,6 +2,13 @@
 
 ![overtheair](pics/overtheari.png)
 
+The generation of AdVSV dataset is divided into two steps, (a) adversarial attack and (b) over-the-air attack.
+
+* (a)The adversarial attack is digital in level, specifying the victim's automatic speaker verification model as well as the Attacker (adversarial attack algorithm) to generate the
+  _**adversarial samples**_.
+* (b)Adversarial samples are replayed after an over-the-air attack (replay-recording) to get **_replay samples_**.
+
+
 ## Abstract
 
 It is known that deep neural networks are vulnerable to adversarial attacks. Although Automatic Speaker Verification (ASV) built on top of deep neural networks exhibits robust
@@ -24,13 +31,13 @@ license. In addition, we also provide a detection baseline for reproducible rese
 Please email 223040245@link.cuhk.edu.cn, and cc wuzhizheng@cuhk.edu.cn. In the email body, include your full name, organization, and intended use. We'll promptly review
 and respond. Thank you for your support.
 
-### Resource
+## Folder hierarchy
 
-1. The folder hierarchy is shown below.
-    - Divide adversarial attack and over the air into two folders: _Adv_ and _OverTheAir_.
-        - Adv: Divided into _PGD_ and _Ensemble_PGD_, identifying the attacked speaker verification model as well as the PGD parameters.
-        - OverTheAir: Identify the replay device by _High, Low, Medium_ and the recording device by _AndroidHigh, AndroidLow, iOS_.
-            - Note that we also provide replay samples that have **_not_** been subjected to adversarial attacks, stored in the _Raw_ folder.
+The folder hierarchy is shown below.
+1. Divide adversarial attack and over the air into two folders: _Adv_ and _OverTheAir_.
+2. Adv: Divided into _PGD_ and _Ensemble_PGD_, identifying the attacked speaker verification model as well as the PGD parameters.
+3. OverTheAir: Identify the replay device by _High, Low, Medium_ and the recording device by _AndroidHigh, AndroidLow, iOS_. 
+4. Note that we also provide replay samples that have **_not_** been subjected to adversarial attacks, stored in the _Raw_ folder.
 
 ```
 |-- Adv
@@ -64,27 +71,18 @@ and respond. Thank you for your support.
 |   |   |-- ...
 ```
 
-2. Dataloader
+## Baseline
 
-# Baseline
-
-# License
+## License
 
 The AdvSV dataset is released under the CC-BY license. This license enables reusers to distribute, remix, adapt, and build upon the material in any medium or format, so long as
 attribution is given to the creator. The license allows for commercial use. Detailed terms can be found on [LICENSE](https://creativecommons.org/share-your-work/cclicenses/).
 If you have any questions about this, please contact us via E-mail: 223040245@link.cuhk.edu.cn or cc wuzhizheng@cuhk.edu.cn.
-# Appendix
 
-## A.Data Collection
+## Appendix
 
-![overtheair](pics/overtheari.png)
-The generation of AdVSV dataset is divided into two steps, (a) adversarial attack and (b) over-the-air attack.
 
-* (a)The adversarial attack is digital in level, specifying the victim's automatic speaker verification model as well as the Attacker (adversarial attack algorithm) to generate the
-  _**adversarial samples**_.
-* (b)Adversarial samples are replayed after an over-the-air attack (replay-recording) to get **_replay samples_**.
-
-## B.Sample from Voxceleb1
+### A.Sample from Voxceleb1
 
 The base dataset of AdvSV is sampled in the Voxceleb1 verification test set.
 The Voxceleb1 verification test set has 37,720 data samples, each including enrollment, test sample, and a label (0 for different speakers, 1 for the same speaker).
@@ -99,9 +97,9 @@ To implement these principles, the approach concatenates enrollment and test spe
 _id10270-id10284_.
 
 Then, each data ID undergoes a random 25% downsampling, preserving a quarter of the data. Notably, when downsampling reaches 0 samples, one sample is retained.
-Final retained **9,083** samples. Currently, in order to reduce the burden of replay recording, for the Over-the-air attack, **we only record the results of the target attack**,
-i.e., the
-data pairs labeled as "different speakers", and the goal of the attack is to make the speaker verification model recognize them as the "same speaker".
+Final retained **9,083** samples, which recorded in file [veri_test_25.txt](https://github.com/AdvSV/AdvSV.github.io/blob/main/veri_test_25.txt). Currently, in order to reduce the
+burden of replay recording, for the Over-the-air attack, **we only record the results of the target attack**,
+i.e., the data pairs labeled as "different speakers", and the goal of the attack is to make the speaker verification model recognize them as the "same speaker".
 
 veri_test_25.txt is a list of downsampled samples. In order to test the EER metric for automatic speaker recognition, we retained samples of the same speaker. Only attack different
 speaker samples during adversarial attacks.
