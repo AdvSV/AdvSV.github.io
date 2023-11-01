@@ -1,12 +1,17 @@
 # AdvSV: An Over-the-Air Adversarial Attack Dataset for Speaker Verification
 
-![overtheair](pics/overtheari.png)
+
+![overtheair](pics/ASV_Adv.png)
 
 The generation of AdVSV dataset is divided into two steps, (a) adversarial attack and (b) over-the-air attack.
 
 * (a)The adversarial attack is digital in level, specifying the victim's automatic speaker verification model as well as the Attacker (adversarial attack algorithm) to generate the
   _**adversarial samples**_.
 * (b)Adversarial samples are replayed after an over-the-air attack (replay-recording) to get **_replay samples_**.
+
+![overtheair](pics/overtheari.png)
+
+You can listen to some demos on the [demo page](https://advsv.github.io/).
 
 ## Abstract
 
