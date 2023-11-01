@@ -8,7 +8,6 @@ The generation of AdVSV dataset is divided into two steps, (a) adversarial attac
   _**adversarial samples**_.
 * (b)Adversarial samples are replayed after an over-the-air attack (replay-recording) to get **_replay samples_**.
 
-
 ## Abstract
 
 It is known that deep neural networks are vulnerable to adversarial attacks. Although Automatic Speaker Verification (ASV) built on top of deep neural networks exhibits robust
@@ -31,12 +30,25 @@ license. In addition, we also provide a detection baseline for reproducible rese
 Please email 223040245@link.cuhk.edu.cn, and cc wuzhizheng@cuhk.edu.cn. In the email body, include your full name, organization, and intended use. We'll promptly review
 and respond. Thank you for your support.
 
+## Tag file
+
+Confrontation samples and over-the-air samples were recorded with the A-file. Examples are shown in the table below, each record has five attributes, file path, attack method,
+victim ASV model, playback device and recording device.
+
+|                                                                           File Path                                                                            | Attack Method |        Victim ASV Model        | Replay Device | Record Device |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------:|:------------------------------:|:-------------:|:-------------:|
+|            Adv/Ensemble_PGD/ResNetSE34V2-ECAPATDNN-RawNet3_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10270-8jEAjG6SegY-00012.wav             | Ensemble_PGD  | ResNetSE34V2-ECAPATDNN-RawNet3 |      NA       |      NA       |
+|                           Adv/PGD/ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10309-e-IdJ8a4gy4-00005_id10292-aVmHBUeThTQ-00001.wav                            |      PGD      |           ECAPATDNN            |      NA       |      NA       |
+| OverTheAir/Low/AndroidHigh/Ensemble_PGD/XVector-ResNetSE34V2-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10292-gm6PJowclv0-00009_id10273-8cfyJEV7hP8-00019.wav | Ensemble_PGD  | XVector-ResNetSE34V2-ECAPATDNN |      Low      |  AndroidHigh  |
+|                 OverTheAir/Low/AndroidHigh/PGD/XVector_eps-0.008_alpha-0.0004_steps-20/id10307-120gjdqGWNQ-00004_id10292-3kzw8lTcUBU-00015.wav                 |      PGD      |            XVector             |      Low      |  AndroidHigh  |                                                                                                                                |               |                                |               |               |
+
 ## Folder hierarchy
 
 The folder hierarchy is shown below.
+
 1. Divide adversarial attack and over the air into two folders: _Adv_ and _OverTheAir_.
 2. Adv: Divided into _PGD_ and _Ensemble_PGD_, identifying the attacked speaker verification model as well as the PGD parameters.
-3. OverTheAir: Identify the replay device by _High, Low, Medium_ and the recording device by _AndroidHigh, AndroidLow, iOS_. 
+3. OverTheAir: Identify the replay device by _High, Low, Medium_ and the recording device by _AndroidHigh, AndroidLow, iOS_.
 4. Note that we also provide replay samples that have **_not_** been subjected to adversarial attacks, stored in the _Raw_ folder.
 
 ```
@@ -47,10 +59,10 @@ The folder hierarchy is shown below.
 |   |    |-- XVector_eps-0.008_alpha-0.0004_steps-20
 |   |    |-- ResNetSE34V2_eps-0.008_alpha-0.0004_steps-20
 |   |-- Ensemble_PGD
-|   |    |-- ResNetSE34V2-ECAPATDNN-RawNet3-eps-0.008_alpha-0.0004_steps-20
-|   |    |-- XVector-ECAPATDNN-RawNet3-eps-0.008_alpha-0.0004_steps-20
-|   |    |-- XVector-ResNetSE34V2-ECAPATDNN-eps-0.008_alpha-0.0004_steps-20
-|   |    |-- XVector-ResNetSE34V2-RawNet3-eps-0.008_alpha-0.0004_steps-20
+|   |    |-- ResNetSE34V2-ECAPATDNN-RawNet3_eps-0.008_alpha-0.0004_steps-20
+|   |    |-- XVector-ECAPATDNN-RawNet3_eps-0.008_alpha-0.0004_steps-20
+|   |    |-- XVector-ResNetSE34V2-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20
+|   |    |-- XVector-ResNetSE34V2-RawNet3_eps-0.008_alpha-0.0004_steps-20
 |-- OverTheAir
 |   |-- High
 |   |   |-- AndroidHigh
@@ -71,8 +83,6 @@ The folder hierarchy is shown below.
 |   |   |-- ...
 ```
 
-## Baseline
-
 ## License
 
 The AdvSV dataset is released under the CC-BY license. This license enables reusers to distribute, remix, adapt, and build upon the material in any medium or format, so long as
@@ -80,7 +90,6 @@ attribution is given to the creator. The license allows for commercial use. Deta
 If you have any questions about this, please contact us via E-mail: 223040245@link.cuhk.edu.cn or cc wuzhizheng@cuhk.edu.cn.
 
 ## Appendix
-
 
 ### A.Sample from Voxceleb1
 
@@ -103,4 +112,3 @@ i.e., the data pairs labeled as "different speakers", and the goal of the attack
 
 veri_test_25.txt is a list of downsampled samples. In order to test the EER metric for automatic speaker recognition, we retained samples of the same speaker. Only attack different
 speaker samples during adversarial attacks.
-
