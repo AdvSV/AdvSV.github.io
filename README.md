@@ -32,15 +32,20 @@ and respond. Thank you for your support.
 
 ## Tag file
 
-Confrontation samples and over-the-air samples were recorded with the A-file. Examples are shown in the table below, each record has five attributes, file path, attack method,
-victim ASV model, playback device and recording device.
+Confrontation samples and over-the-air samples were recorded with the [AdvSV_tag.txt](https://github.com/AdvSV/AdvSV.github.io/blob/main/AdvSV_tag.txt).
+Examples are shown in the table below, each record has five attributes, _file path_, _attack method_, _victim ASV model_, _replay device_ and _recording device_.
 
-|                                                                           File Path                                                                            | Attack Method |        Victim ASV Model        | Replay Device | Record Device |
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------:|:------------------------------:|:-------------:|:-------------:|
-|            Adv/Ensemble_PGD/ResNetSE34V2-ECAPATDNN-RawNet3_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10270-8jEAjG6SegY-00012.wav             | Ensemble_PGD  | ResNetSE34V2-ECAPATDNN-RawNet3 |      NA       |      NA       |
-|                           Adv/PGD/ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10309-e-IdJ8a4gy4-00005_id10292-aVmHBUeThTQ-00001.wav                            |      PGD      |           ECAPATDNN            |      NA       |      NA       |
-| OverTheAir/Low/AndroidHigh/Ensemble_PGD/XVector-ResNetSE34V2-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10292-gm6PJowclv0-00009_id10273-8cfyJEV7hP8-00019.wav | Ensemble_PGD  | XVector-ResNetSE34V2-ECAPATDNN |      Low      |  AndroidHigh  |
-|                 OverTheAir/Low/AndroidHigh/PGD/XVector_eps-0.008_alpha-0.0004_steps-20/id10307-120gjdqGWNQ-00004_id10292-3kzw8lTcUBU-00015.wav                 |      PGD      |            XVector             |      Low      |  AndroidHigh  |                                                                                                                                |               |                                |               |               |
+|                                                                           File Path                                                                            | Attack Method |        Victim ASV Model        | Replay Device | Recording Device |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------:|:------------------------------:|:-------------:|:----------------:|
+|            Adv/Ensemble_PGD/ResNetSE34V2-ECAPATDNN-RawNet3_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10270-8jEAjG6SegY-00012.wav             | Ensemble_PGD  | ResNetSE34V2-ECAPATDNN-RawNet3 |      NA       |        NA        |
+|                           Adv/PGD/ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10309-e-IdJ8a4gy4-00005_id10292-aVmHBUeThTQ-00001.wav                            |      PGD      |           ECAPATDNN            |      NA       |        NA        |
+| OverTheAir/Low/AndroidHigh/Ensemble_PGD/XVector-ResNetSE34V2-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10292-gm6PJowclv0-00009_id10273-8cfyJEV7hP8-00019.wav | Ensemble_PGD  | XVector-ResNetSE34V2-ECAPATDNN |      Low      |   AndroidHigh    |
+|                 OverTheAir/Low/AndroidHigh/PGD/XVector_eps-0.008_alpha-0.0004_steps-20/id10307-120gjdqGWNQ-00004_id10292-3kzw8lTcUBU-00015.wav                 |      PGD      |            XVector             |      Low      |   AndroidHigh    |                                                                                                                                |               |                                |               |               |
+
+### Generation of file names
+The file name consists of a enrollment sample and a evaluation sample, for example id10307-120gjdqGWNQ-00004_id10292-3kzw8lTcUBU-00015.wav, id10307/120gjdqGWNQ/00004.wav (A) is the
+enrollment sample, id10292/ 3kzw8lTcUBU/00015.wav (B) is the evaluation sample, and the two are different speaker voices (id10307 vs. id10292). The adversarial attack B makes the
+ASV model think that A and B are the same speaker.
 
 ## Folder hierarchy
 
