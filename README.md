@@ -1,6 +1,5 @@
 # AdvSV: An Over-the-Air Adversarial Attack Dataset for Speaker Verification
 
-You can find more detailed information in the [paper](https://arxiv.org/abs/2310.05369).
 
 ![overtheair](pics/ASV_Adv.png)
 
@@ -12,7 +11,7 @@ The generation of AdVSV dataset is divided into two steps, (a) adversarial attac
 
 ![overtheair](pics/overtheari.png)
 
-You can listen to some demos on the [demo page](https://advsv.github.io/).
+You can listen to some demos on the [demo page](https://advsv.github.io/) and check out the [paper](https://arxiv.org/abs/2310.05369).
 
 ## Abstract
 
