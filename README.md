@@ -1,6 +1,5 @@
 # AdvSV: An Over-the-Air Adversarial Attack Dataset for Speaker Verification
 
-
 ![overtheair](pics/ASV_Adv.png)
 
 The generation of AdVSV dataset is divided into two steps, (a) adversarial attack and (b) over-the-air attack.
@@ -47,7 +46,13 @@ and respond. Thank you for your support.
 ## Tag file
 
 Confrontation samples and over-the-air samples were recorded with the [AdvSV_tag.txt](https://github.com/AdvSV/AdvSV.github.io/blob/main/AdvSV_tag.txt).
-Examples are shown in the table below, each record has five attributes, _file path_, _attack method_, _victim ASV model_, _replay device_ and _recording device_.
+Each record has five attributes
+
+```
+File_path, Attack method, Victim ASV Model, Replay Device, Recording Device
+```
+
+Examples are shown in the table below.
 
 |                                                                           File Path                                                                            | Attack Method |        Victim ASV Model        | Replay Device | Recording Device |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------:|:------------------------------:|:-------------:|:----------------:|
@@ -109,6 +114,19 @@ The AdvSV dataset is released under the CC-BY license. This license enables reus
 attribution is given to the creator. The license allows for commercial use. Detailed terms can be found on [LICENSE](https://creativecommons.org/share-your-work/cclicenses/).
 If you have any questions about this, please contact us via E-mail: 223040245@link.cuhk.edu.cn or cc wuzhizheng@cuhk.edu.cn.
 
+## Reference
+
+```
+@misc{wang2023advsv,
+      title={AdvSV: An Over-the-Air Adversarial Attack Dataset for Speaker Verification}, 
+      author={Li Wang and Jiaqi Li and Yuhao Luo and Jiahao Zheng and Lei Wang and Hao Li and Ke Xu and Chengfang Fang and Jie Shi and Zhizheng Wu},
+      year={2023},
+      eprint={2310.05369},
+      archivePrefix={arXiv},
+      primaryClass={cs.SD}
+}
+```
+
 ## Appendix
 
 ### A.Sample from Voxceleb1
@@ -132,3 +150,19 @@ i.e., the data pairs labeled as "different speakers", and the goal of the attack
 
 veri_test_25.txt is a list of downsampled samples. In order to test the EER metric for automatic speaker recognition, we retained samples of the same speaker. Only attack different
 speaker samples during adversarial attacks.
+
+### B. attackResult.txt
+
+Inside the Adv folder, information about the Adversarial sample is recorded in the attackResult.txt file.
+Each record has six attributes
+
+```
+Enrollment File, Adversarial File, Is Attack Success, Original Label, Cosine Similarity, Average Perturbation
+```
+
+Examples are shown in the table below.
+
+|      Enrollment File      |                  Adversarial File                   | Is Attack Success | Original Label |  Cosine Similarity  | Average Perturbation  |
+|:-------------------------:|:---------------------------------------------------:|:-----------------:|:--------------:|:-------------------:|-----------------------|
+| id10270-8jEAjG6SegY-00035 | id10270-8jEAjG6SegY-00035_id10270-5r0dWxy17C8-00021 |       True        |       1        | -0.496655136346817  | 0.0065907384268939495 |
+| id10270-5r0dWxy17C8-00024 | id10270-5r0dWxy17C8-00024_id10270-OhfKF8FSq3Y-00005 |       True        |       1        | -0.5840052366256714 | 0.006569686811417341  |
