@@ -1,5 +1,6 @@
 # AdvSV: An Over-the-Air Adversarial Attack Dataset for Speaker Verification
 
+You can find more detailed information in the [paper](https://arxiv.org/abs/2310.05369).
 
 ![overtheair](pics/ASV_Adv.png)
 
@@ -28,7 +29,16 @@ license. In addition, we also provide a detection baseline for reproducible rese
 
 | Utterances | Hours | Adversarial Victim Models | Adversarial Attack Methods | Replay Devices | Record Devices |
 |:----------:|:-----:|:-------------------------:|:--------------------------:|:--------------:|:--------------:|
-|  387,160   |  894  |             2             |             4              |       3        |       3        |
+|  387,160   |  894  |             4             |             2              |       3        |       3        |
+
+### Adversarial Victim Models
+
+| Adversarial Victim Model | Abbr. in  [AdvSV paper](https://arxiv.org/abs/2310.05369) |                                            Reference                                             |
+|:------------------------:|:---------------------------------------------------------:|:------------------------------------------------------------------------------------------------:|
+|        ECAPATDNN         |                           ECAPA                           | [paper](https://www.isca-speech.org/archive/pdfs/interspeech_2020/desplanques20_interspeech.pdf) |
+|         RawNet3          |                          RawNet                           |      [paper](https://www.isca-speech.org/archive/interspeech_2022/jung22_interspeech.html)       |
+|       ResNetSE34V2       |                          ResNet                           |                      [paper](https://ieeexplore.ieee.org/document/9413948/)                      |
+|         XVector          |                           XVec                            |                      [paper](https://ieeexplore.ieee.org/document/8461375)                       |
 
 ## Download
 
