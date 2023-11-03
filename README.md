@@ -31,12 +31,12 @@ license. In addition, we also provide a detection baseline for reproducible rese
 
 ### Adversarial Victim Models
 
-| Adversarial Victim Model | Abbr. in  [AdvSV paper](https://arxiv.org/abs/2310.05369) |                                            Reference                                             |
-|:------------------------:|:---------------------------------------------------------:|:------------------------------------------------------------------------------------------------:|
-|        ECAPATDNN         |                           ECAPA                           | [paper](https://www.isca-speech.org/archive/pdfs/interspeech_2020/desplanques20_interspeech.pdf) |
-|         RawNet3          |                          RawNet                           |      [paper](https://www.isca-speech.org/archive/interspeech_2022/jung22_interspeech.html)       |
-|       ResNetSE34V2       |                          ResNet                           |                      [paper](https://ieeexplore.ieee.org/document/9413948/)                      |
-|         XVector          |                           XVec                            |                      [paper](https://ieeexplore.ieee.org/document/8461375)                       |
+| Abbr. in  [AdvSV paper](https://arxiv.org/abs/2310.05369) | Adversarial Victim Model |                                            Reference                                             |
+|-----------------------------------------------------------|:------------------------:|:------------------------------------------------------------------------------------------------:|
+| ECAPA                                                     |        ECAPATDNN         | [paper](https://www.isca-speech.org/archive/pdfs/interspeech_2020/desplanques20_interspeech.pdf) |
+| RawNet                                                    |         RawNet3          |      [paper](https://www.isca-speech.org/archive/interspeech_2022/jung22_interspeech.html)       |
+| ResNet                                                    |       ResNetSE34V2       |                      [paper](https://ieeexplore.ieee.org/document/9413948/)                      |
+| XVec                                                      |         XVector          |                      [paper](https://ieeexplore.ieee.org/document/8461375)                       |
 
 ## Download
 
@@ -54,12 +54,12 @@ File_path, Attack method, Victim ASV Model, Replay Device, Recording Device
 
 Examples are shown in the table below.
 
-|                                                                           File Path                                                                            | Attack Method |        Victim ASV Model        | Replay Device | Recording Device |
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------:|:------------------------------:|:-------------:|:----------------:|
-|            Adv/Ensemble_PGD/ResNetSE34V2-ECAPATDNN-RawNet3_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10270-8jEAjG6SegY-00012.wav             | Ensemble_PGD  | ResNetSE34V2-ECAPATDNN-RawNet3 |      NA       |        NA        |
-|                           Adv/PGD/ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10309-e-IdJ8a4gy4-00005_id10292-aVmHBUeThTQ-00001.wav                            |      PGD      |           ECAPATDNN            |      NA       |        NA        |
-| OverTheAir/Low/AndroidHigh/Ensemble_PGD/XVector-ResNetSE34V2-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20/id10292-gm6PJowclv0-00009_id10273-8cfyJEV7hP8-00019.wav | Ensemble_PGD  | XVector-ResNetSE34V2-ECAPATDNN |      Low      |   AndroidHigh    |
-|                 OverTheAir/Low/AndroidHigh/PGD/XVector_eps-0.008_alpha-0.0004_steps-20/id10307-120gjdqGWNQ-00004_id10292-3kzw8lTcUBU-00015.wav                 |      PGD      |            XVector             |      Low      |   AndroidHigh    |                                                                                                                                |               |                                |               |               |
+|                                                                     File Path                                                                     | Attack Method |  Victim ASV Model   | Replay Device | Recording Device |
+|:-------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------:|:-------------------:|:-------------:|:----------------:|
+|           Adv/Ensemble_PGD/ResNet-ECAPA-RawNet_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10270-8jEAjG6SegY-00012.wav            | Ensemble_PGD  | ResNet-ECAPA-RawNet |      NA       |        NA        |
+|                       Adv/PGD/ECAPA_eps-0.008_alpha-0.0004_steps-20/id10309-e-IdJ8a4gy4-00005_id10292-aVmHBUeThTQ-00001.wav                       |      PGD      |        ECAPA        |      NA       |        NA        |
+| OverTheAir/Low/AndroidHigh/Ensemble_PGD/XVec-ResNet-ECAPA_eps-0.008_alpha-0.0004_steps-20/id10292-gm6PJowclv0-00009_id10273-8cfyJEV7hP8-00019.wav | Ensemble_PGD  |  XVec-ResNet-ECAPA  |      Low      |   AndroidHigh    |
+|            OverTheAir/Low/AndroidHigh/PGD/XVec_eps-0.008_alpha-0.0004_steps-20/id10307-120gjdqGWNQ-00004_id10292-3kzw8lTcUBU-00015.wav            |      PGD      |        XVec         |      Low      |   AndroidHigh    |                                                                                                                                |               |                                |               |               |
 
 ### Generation of file names
 
@@ -79,15 +79,15 @@ The folder hierarchy is shown below.
 ```
 |-- Adv
 |   |-- PGD
-|   |    |-- ECAPATDNN_eps-0.008_alpha-0.0004_steps-20
-|   |    |-- RawNet3_eps-0.008_alpha-0.0004_steps-20
-|   |    |-- XVector_eps-0.008_alpha-0.0004_steps-20
-|   |    |-- ResNetSE34V2_eps-0.008_alpha-0.0004_steps-20
+|   |    |-- ECAPA_eps-0.008_alpha-0.0004_steps-20
+|   |    |-- RawNet_eps-0.008_alpha-0.0004_steps-20
+|   |    |-- XVec_eps-0.008_alpha-0.0004_steps-20
+|   |    |-- ResNet_eps-0.008_alpha-0.0004_steps-20
 |   |-- Ensemble_PGD
-|   |    |-- ResNetSE34V2-ECAPATDNN-RawNet3_eps-0.008_alpha-0.0004_steps-20
-|   |    |-- XVector-ECAPATDNN-RawNet3_eps-0.008_alpha-0.0004_steps-20
-|   |    |-- XVector-ResNetSE34V2-ECAPATDNN_eps-0.008_alpha-0.0004_steps-20
-|   |    |-- XVector-ResNetSE34V2-RawNet3_eps-0.008_alpha-0.0004_steps-20
+|   |    |-- ResNet-ECAPA-RawNet_eps-0.008_alpha-0.0004_steps-20
+|   |    |-- XVec-ECAPA-RawNet_eps-0.008_alpha-0.0004_steps-20
+|   |    |-- XVec-ResNet-ECAPA_eps-0.008_alpha-0.0004_steps-20
+|   |    |-- XVec-ResNet-RawNet_eps-0.008_alpha-0.0004_steps-20
 |-- OverTheAir
 |   |-- High
 |   |   |-- AndroidHigh
