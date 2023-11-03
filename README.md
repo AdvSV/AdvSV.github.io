@@ -2,13 +2,12 @@
 
 ![overtheair](pics/ASV_Adv.png)
 
-The generation of AdVSV dataset is divided into two steps, (a) adversarial attack and (b) over-the-air attack.
+The generation of AdVSV dataset is divided into two steps, adversarial attack and over-the-air attack.
 
-* (a)The adversarial attack is digital in level, specifying the victim's automatic speaker verification model as well as the Attacker (adversarial attack algorithm) to generate the
+* The adversarial attack is digital in level, specifying the victim's automatic speaker verification model as well as the Attacker (adversarial attack algorithm) to generate the
   _**adversarial samples**_.
-* (b)Adversarial samples are replayed after an over-the-air attack (replay-recording) to get **_replay samples_**.
+* Adversarial samples are replayed after an over-the-air attack (replay-recording) to get **_replay samples_**.
 
-![overtheair](pics/overtheari.png)
 
 You can listen to some demos on the [demo page](https://advsv.github.io/) and check out the [paper](https://arxiv.org/abs/2310.05369).
 
