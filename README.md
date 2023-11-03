@@ -39,8 +39,7 @@ license. In addition, we also provide a detection baseline for reproducible rese
 
 ## Download
 
-Please email 223040245@link.cuhk.edu.cn, and cc wuzhizheng@cuhk.edu.cn. In the email body, include your full name, organization, and intended use. We'll promptly review
-and respond. Thank you for your support.
+Please fill in the [form](https://forms.gle/XHFtvLczmSrnFNLf6). We'll promptly review and respond. Thank you for your support.
 
 ## Tag file
 
@@ -111,7 +110,7 @@ The folder hierarchy is shown below.
 
 The AdvSV dataset is released under the CC-BY license. This license enables reusers to distribute, remix, adapt, and build upon the material in any medium or format, so long as
 attribution is given to the creator. The license allows for commercial use. Detailed terms can be found on [LICENSE](https://creativecommons.org/share-your-work/cclicenses/).
-If you have any questions about this, please contact us via E-mail: 223040245@link.cuhk.edu.cn or cc wuzhizheng@cuhk.edu.cn.
+If you have any questions about this, please contact us via E-mail: liwang1@link.cuhk.edu.cn cc wuzhizheng@cuhk.edu.cn.
 
 ## Reference
 
