@@ -109,7 +109,8 @@ The folder hierarchy is shown below.
 
 If you want to follow this data split, please download the [VoxCeleb1](https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox1.html) dataset first.
 
-The bonafide and spoof samples were recorded in bonafide.txt and spoof.txt, respectively.
+The bonafide and spoof samples were recorded in [bonafide.txt](https://github.com/AdvSV/AdvSV.github.io/blob/main/bonafide.txt)
+and [spoof.txt](https://github.com/AdvSV/AdvSV.github.io/blob/main/spoof.txt), respectively.
 We provide splits for the training set, the development set, and the evaluation set.
 
 Examples are shown in the table below.
