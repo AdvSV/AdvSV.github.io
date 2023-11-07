@@ -8,7 +8,6 @@ The generation of AdVSV dataset is divided into two steps, adversarial attack an
   _**adversarial samples**_.
 * Adversarial samples are replayed after an over-the-air attack (replay-recording) to get **_replay samples_**.
 
-
 You can listen to some demos on the [demo page](https://advsv.github.io/) and check out the [paper](https://arxiv.org/abs/2310.05369).
 
 ## Abstract
@@ -52,12 +51,12 @@ File_path, Attack method, Victim ASV Model, Replay Device, Recording Device
 
 Examples are shown in the table below.
 
-|                                                                     File Path                                                                     | Attack Method |  Victim ASV Model   | Replay Device | Recording Device |
-|:-------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------:|:-------------------:|:-------------:|:----------------:|
-|           Adv/Ensemble_PGD/ResNet-ECAPA-RawNet_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10270-8jEAjG6SegY-00012.wav            | Ensemble_PGD  | ResNet-ECAPA-RawNet |      NA       |        NA        |
-|                       Adv/PGD/ECAPA_eps-0.008_alpha-0.0004_steps-20/id10309-e-IdJ8a4gy4-00005_id10292-aVmHBUeThTQ-00001.wav                       |      PGD      |        ECAPA        |      NA       |        NA        |
-| OverTheAir/Low/AndroidHigh/Ensemble_PGD/XVec-ResNet-ECAPA_eps-0.008_alpha-0.0004_steps-20/id10292-gm6PJowclv0-00009_id10273-8cfyJEV7hP8-00019.wav | Ensemble_PGD  |  XVec-ResNet-ECAPA  |      Low      |   AndroidHigh    |
-|            OverTheAir/Low/AndroidHigh/PGD/XVec_eps-0.008_alpha-0.0004_steps-20/id10307-120gjdqGWNQ-00004_id10292-3kzw8lTcUBU-00015.wav            |      PGD      |        XVec         |      Low      |   AndroidHigh    |                                                                                                                                |               |                                |               |               |
+| File Path                                                                                                                                         | Attack Method | Victim ASV Model    | Replay Device | Recording Device |
+|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------------|---------------|------------------|
+| Adv/Ensemble_PGD/ResNet-ECAPA-RawNet_eps-0.008_alpha-0.0004_steps-20/id10270-5r0dWxy17C8-00001_id10270-8jEAjG6SegY-00012.wav                      | Ensemble_PGD  | ResNet-ECAPA-RawNet | NA            | NA               |
+| Adv/PGD/ECAPA_eps-0.008_alpha-0.0004_steps-20/id10309-e-IdJ8a4gy4-00005_id10292-aVmHBUeThTQ-00001.wav                                             | PGD           | ECAPA               | NA            | NA               |
+| OverTheAir/Low/AndroidHigh/Ensemble_PGD/XVec-ResNet-ECAPA_eps-0.008_alpha-0.0004_steps-20/id10292-gm6PJowclv0-00009_id10273-8cfyJEV7hP8-00019.wav | Ensemble_PGD  | XVec-ResNet-ECAPA   | Low           | AndroidHigh      |
+| OverTheAir/Low/AndroidHigh/PGD/XVec_eps-0.008_alpha-0.0004_steps-20/id10307-120gjdqGWNQ-00004_id10292-3kzw8lTcUBU-00015.wav                       | PGD           | XVec                | Low           | AndroidHigh      |                                                                                                                                |               |                                |               |               |
 
 ### Generation of file names
 
@@ -105,6 +104,43 @@ The folder hierarchy is shown below.
 |   |-- Medium
 |   |   |-- ...
 ```
+
+## Official Data Split
+If you want to follow this data split, please download the [VoxCeleb1](https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox1.html) dataset first.
+
+
+The bonafide and spoof samples were recorded in bonafide.txt and spoof.txt, respectively.
+We provide splits for the training set, the development set, and the evaluation set.
+
+
+Examples are shown in the table below.
+
+| File Path(spoof.txt)                                                                                                                      | Set   |
+|-------------------------------------------------------------------------------------------------------------------------------------------|-------|
+| OverTheAir/Low/iOS/PGD/ResNet_eps-0.008_alpha-0.0004_steps-20/id10283-h87Y8nir1o0-00007_id10300-ize_eiCFEg0-00005.wav                     | train |
+| Adv/Ensemble_PGD/XVec-ResNet-ECAPA_eps-0.008_alpha-0.0004_steps-20/id10298-hjvQiiG71rM-00026_id10285-uArtiTSTnSU-00015.wav                | train |
+| OverTheAir/Low/iOS/Ensemble_PGD/XVec-ResNet-ECAPA_eps-0.008_alpha-0.0004_steps-20/id10292-3kzw8lTcUBU-00005_id10307-IASj5B-pAyM-00002.wav | dev   |
+| OverTheAir/High/AndroidHigh/PGD/RawNet_eps-0.008_alpha-0.0004_steps-20/id10272-olePnztkm6U-00012_id10292-ENIHEvg_VLM-00015.wav            | eval  |
+
+| File Path(bonafide.txt)       | Set   |
+|-------------------------------|-------|
+| id10533/gWHHxedxtUA/00005.wav | train |
+| id11037/FKV4YA7_-YQ/00006.wav | dev   |
+| id10030/DSrDNGJrN5U/00002.wav | eval  |
+
+All data in bonafide is derived from [VoxCeleb1](https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox1.html).
+
+In the spoof data, in order to test the performance of the out-of-domain data, the samples related to the _RawNet_ model(_RawNet, ResNet-ECAPA-RawNet, XVec-ECAPA-RawNet,
+XVec-ResNet-RawNet_), the _Medium_ replay device, and the _Android High_ device, all of them are all unknown in the training phase, i.e., **they do not appear in the training set
+as well as in the development set**.
+
+The number of dataset splits is shown in the table below.
+
+|          |   train |    dev |    eval |   total |
+|----------|--------:|-------:|--------:|--------:|
+| spoof    |  84,976 | 10,622 | 291,562 | 387,160 |
+| bonafide |  15,351 | 15,325 | 122,813 | 153,489 |
+| total    | 100,327 | 25,973 | 414,375 | 540,649 |
 
 ## License
 
