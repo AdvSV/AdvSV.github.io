@@ -106,12 +106,11 @@ The folder hierarchy is shown below.
 ```
 
 ## Official Data Split
-If you want to follow this data split, please download the [VoxCeleb1](https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox1.html) dataset first.
 
+If you want to follow this data split, please download the [VoxCeleb1](https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox1.html) dataset first.
 
 The bonafide and spoof samples were recorded in bonafide.txt and spoof.txt, respectively.
 We provide splits for the training set, the development set, and the evaluation set.
-
 
 Examples are shown in the table below.
 
@@ -139,8 +138,8 @@ The number of dataset splits is shown in the table below.
 |          |   train |    dev |    eval |   total |
 |----------|--------:|-------:|--------:|--------:|
 | spoof    |  84,976 | 10,622 | 291,562 | 387,160 |
-| bonafide |  15,351 | 15,325 | 122,813 | 153,489 |
-| total    | 100,327 | 25,973 | 414,375 | 540,649 |
+| bonafide |  15,351 | 15,352 | 122,813 | 153,516 |
+| total    | 100,327 | 25,974 | 414,375 | 540,676 |
 
 ## License
 
