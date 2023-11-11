@@ -29,12 +29,12 @@ license. In addition, we also provide a detection baseline for reproducible rese
 
 ### Adversarial Victim Models
 
-| Abbr. in  [AdvSV paper](https://arxiv.org/abs/2310.05369) | Adversarial Victim Model |                                            Reference                                             |
-|-----------------------------------------------------------|:------------------------:|:------------------------------------------------------------------------------------------------:|
-| ECAPA                                                     |        ECAPATDNN         | [paper](https://www.isca-speech.org/archive/pdfs/interspeech_2020/desplanques20_interspeech.pdf) |
-| RawNet                                                    |         RawNet3          |      [paper](https://www.isca-speech.org/archive/interspeech_2022/jung22_interspeech.html)       |
-| ResNet                                                    |       ResNetSE34V2       |                      [paper](https://ieeexplore.ieee.org/document/9413948/)                      |
-| XVec                                                      |         XVector          |                      [paper](https://ieeexplore.ieee.org/document/8461375)                       |
+| Victim Model | Implement Detail |                                            Reference                                             |
+|--------------|:----------------:|:------------------------------------------------------------------------------------------------:|
+| ECAPA        |    ECAPATDNN     | [paper](https://www.isca-speech.org/archive/pdfs/interspeech_2020/desplanques20_interspeech.pdf) |
+| RawNet       |     RawNet3      |      [paper](https://www.isca-speech.org/archive/interspeech_2022/jung22_interspeech.html)       |
+| ResNet       |   ResNetSE34V2   |                      [paper](https://ieeexplore.ieee.org/document/9413948/)                      |
+| XVec         |     XVector      |                      [paper](https://ieeexplore.ieee.org/document/8461375)                       |
 
 ## Download
 
@@ -115,18 +115,18 @@ We provide splits for the training set, the development set, and the evaluation 
 
 Examples are shown in the table below.
 
-| File Path(spoof.txt)                                                                                                                      | Set   |
-|-------------------------------------------------------------------------------------------------------------------------------------------|-------|
-| OverTheAir/Low/iOS/PGD/ResNet_eps-0.008_alpha-0.0004_steps-20/id10283-h87Y8nir1o0-00007_id10300-ize_eiCFEg0-00005.wav                     | train |
-| Adv/Ensemble_PGD/XVec-ResNet-ECAPA_eps-0.008_alpha-0.0004_steps-20/id10298-hjvQiiG71rM-00026_id10285-uArtiTSTnSU-00015.wav                | train |
-| OverTheAir/Low/iOS/Ensemble_PGD/XVec-ResNet-ECAPA_eps-0.008_alpha-0.0004_steps-20/id10292-3kzw8lTcUBU-00005_id10307-IASj5B-pAyM-00002.wav | dev   |
-| OverTheAir/High/AndroidHigh/PGD/RawNet_eps-0.008_alpha-0.0004_steps-20/id10272-olePnztkm6U-00012_id10292-ENIHEvg_VLM-00015.wav            | eval  |
+| Bonafide.txt                         |
+|:-------------------------------------|
+| id10533/gWHHxedxtUA/00005.wav  train |
+| id11037/FKV4YA7_-YQ/00006.wav  dev   |
+| id10030/DSrDNGJrN5U/00002.wav  eval  |
 
-| File Path(bonafide.txt)       | Set   |
-|-------------------------------|-------|
-| id10533/gWHHxedxtUA/00005.wav | train |
-| id11037/FKV4YA7_-YQ/00006.wav | dev   |
-| id10030/DSrDNGJrN5U/00002.wav | eval  |
+| spoof.txt                                                                                                                                        |
+|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| OverTheAir/Low/iOS/PGD/ResNet_eps-0.008_alpha-0.0004_steps-20/id10283-h87Y8nir1o0-00007_id10300-ize_eiCFEg0-00005.wav                      train |
+| Adv/Ensemble_PGD/XVec-ResNet-ECAPA_eps-0.008_alpha-0.0004_steps-20/id10298-hjvQiiG71rM-00026_id10285-uArtiTSTnSU-00015.wav                 train |
+| OverTheAir/Low/iOS/Ensemble_PGD/XVec-ResNet-ECAPA_eps-0.008_alpha-0.0004_steps-20/id10292-3kzw8lTcUBU-00005_id10307-IASj5B-pAyM-00002.wav  dev   |
+| OverTheAir/High/AndroidHigh/PGD/RawNet_eps-0.008_alpha-0.0004_steps-20/id10272-olePnztkm6U-00012_id10292-ENIHEvg_VLM-00015.wav             eval  |
 
 All data in bonafide is derived from [VoxCeleb1](https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox1.html).
 
