@@ -144,8 +144,8 @@ The number of dataset splits is shown in the table below.
 
 ## License
 
-The AdvSV dataset is released under the CC-BY license. This license enables reusers to distribute, remix, adapt, and build upon the material in any medium or format, so long as
-attribution is given to the creator. The license allows for commercial use. Detailed terms can be found on [LICENSE](https://creativecommons.org/share-your-work/cclicenses/).
+The AdvSV dataset is released under the Creative Commons Attribution-ShareAlike 4.0 International License. This license enables reusers to distribute, remix, adapt, and build upon the material in any medium or format, so long as
+attribution is given to the creator. The license allows for commercial use. Detailed terms can be found on [LICENSE](https://creativecommons.org/licenses/by-sa/4.0/).
 If you have any questions about this, please contact us via E-mail: liwang1@link.cuhk.edu.cn cc wuzhizheng@cuhk.edu.cn.
 
 ## Reference
